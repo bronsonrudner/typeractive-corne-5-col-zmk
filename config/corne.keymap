@@ -64,7 +64,7 @@
 //             | GUI |     | SPC |     | ENT | ESC | TAB |
 //
             bindings = <
-                &kp EXCL &kp GB_DOUBLE_QUOTES &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LBRACKET &kp RBRACKET
+                &kp EXCL &kp GB_DOUBLE_QUOTES &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LEFT_BRACKET &kp RIGHT_BRACKET
                 &kp SEMICOLON &kp COLON &kp PLUS &kp EQUAL &kp N1 &kp N0 &kp UNDERSCORE &kp MINUS &kp LPAR &kp RPAR
                 &kp BACKSLASH &none &kp LEFT_BRACE &kp RIGHT_BRACE &none &kp GB_POUND_SIGN &kp GRAVE &kp TILDE &kp PIPE &none
                 &trans &trans &trans &trans &trans &trans
