@@ -9,21 +9,18 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
-
-#define AS(keycode) &as LS(keycode) keycode
-
 / {
     chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
 
     behaviors {
-        as: auto_shift {
+        hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping_term_ms = <200>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "balanced";  // tap when rolling
             bindings = <&kp>, <&kp>;
         };
     };
@@ -33,6 +30,40 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LSHFT>, <&macro_tap &kp LSHFT>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&kp TAB>;
+        };
+        combo_backspace {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp BACKSPACE>;
+        };
+        combo_delete {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp DEL>;
+        };
+        combo_caps {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp CAPS>;
+        };
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <15 16>;
+            bindings = <&kp ENTER>;
+        };
+        combo_escape {
+            timeout-ms = <50>;
+            key-positions = <26 27>;
+            bindings = <&kp ESC>;
         };
     };
     
@@ -50,18 +81,18 @@
 //
             bindings = <
                 &kp SQT &kp COMMA &kp DOT &kp P &kp Y                           &kp F &kp G &kp C &kp R &kp L
-                &mt LCTRL A &mt LALT O &mt LWIN E &mt LSHIFT U &kp I            &kp D &mt LSHIFT H &mt LWIN T &mt LALT N &mt LCTRL S
+                &hm LCTRL A &hm LALT O &hm LWIN E &hm LSHIFT U &kp I            &kp D &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
                 &kp FSLH &kp Q &kp J &kp K &kp X                                &kp B &kp M &kp W &kp V &kp Z
                 &none &mo 5 &lt 2 SPACE                                         &lt 1 SPACE &mo 3 &none
             >;
         };
 
         symbols_1 {
-// -----------------------------------------------------------------------------------------
+// -------------------------------     -------------------------------
 // |  !  |  "  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  [  |  ]  |
 // |  ;  |  :  |  +  |  =  |  1  |     |  0  |  _  |  -  |  (  |  )  |
 // |  \  |     |  {  |  }  |  €  |     |  £  |  `  |  ~  |  |  |     |
-//             | GUI |     | SPC |     | ENT | ESC | TAB |
+//             |     |     |     |     |     |     |     |
 //
             bindings = <
                 &kp EXCL &kp GB_DOUBLE_QUOTES &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LEFT_BRACKET &kp RIGHT_BRACKET
@@ -72,7 +103,7 @@
         };
 
         space_2 {
-// -----------------------------------------------------------------------------------------
+// -------------------------------     -------------------------------
 // |     |     |     |     |     |     |     |     |     |     |     |
 // |     | CUT | CPY | PST | DSH |     |  0  |  1  |  2  |  3  |  4  |
 // |     |     |     |     |     |     |  5  |  6  |  7  |  8  |  9  |
@@ -86,11 +117,31 @@
         };
 
         navigate_3 {
-            status = "reserved";
+// -------------------------------     -----------------------------------
+// |     |     |     |     |     |     | HOM | CTR< | PgUp | PgDn | CTR> |
+// |     |     |     |     |     |     | END |  <   |  ^   |  V   |  >   |
+// |     |     |     |     |     |     | INS | Vol- | Whl+ | Whl- | Vol+ |
+//             |     |     |     |     |     |      |      |
+            bindings = <
+                &trans &trans &trans &trans &trans      &kp HOME &kp LC(LEFT) &kp PG_UP &kp PG_DN &kp LC(RIGHT)
+                &trans &trans &trans &trans &trans      &kp END &kp LEFT &kp UP &kp DOWN &kp RIGHT
+                &trans &trans &trans &trans &trans      &kp INSERT &kp C_VOL_DN &msc SCRL_DOWN &msc SCRL_UP &kp C_VOL_UP
+                              &trans &trans &trans      &trans &trans &trans
+            >;
         };
 
         function_4 {
-            status = "reserved";
+// -------------------------------     -------------------------------
+// | ESC |     | F11 | F12 |     |     |     |     |     |     |     |
+// | F1  | F2  | F3  | F4  | F5  |     |     |     |     |     |     |
+// | F6  | F7  | F8  | F9  | F10 |     |     |     |     |     |     |
+//             |     |     |     |     |     |     |     |
+            bindings = <
+                &kp ESC &trans &kp F11 &kp F12 &trans      &trans &trans &trans &trans &trans
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &trans &trans &trans &trans &trans
+                &kp F6 &kp F7 &kp F8 &kp F9 &kp F10        &trans &trans &trans &trans &trans
+                              &trans &trans &trans         &trans &trans &trans
+            >;
         };
     };
 };
