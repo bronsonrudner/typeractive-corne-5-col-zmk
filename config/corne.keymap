@@ -7,7 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <keys_en_gb.h>  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
+#include "keys_en_gb.h>"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
 
 #define AS(keycode) &as LS(keycode) keycode
