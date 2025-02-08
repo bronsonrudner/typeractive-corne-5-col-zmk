@@ -34,7 +34,7 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LSHFT>, <&macro_tap &kp LSHFT>;
         };
-    }
+    };
     
     keymap {
         compatible = "zmk,keymap";
