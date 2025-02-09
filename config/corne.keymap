@@ -101,13 +101,13 @@
 // -------------------------------     -------------------------------
 // |  !  |  "  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  [  |  ]  |
 // |  ;  |  :  |  +  |  =  |  1  |     |  0  |  _  |  -  |  (  |  )  |
-// |  \  |     |  {  |  }  |  €  |     |  £  |  `  |  ~  |  |  |     |
+// |  \  |     |  {  |  }  |  €  |     |  £  |  `  |  ~  |  |  |  ¬  |
 //             |     |     |     |     |     |     |     |
 //
             bindings = <
                 &kp EXCL &kp GB_DOUBLE_QUOTES &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LEFT_BRACKET &kp RIGHT_BRACKET
                 &kp SEMICOLON &kp COLON &kp PLUS &kp EQUAL &kp N1 &kp N0 &kp UNDERSCORE &kp MINUS &kp LPAR &kp RPAR
-                &kp BACKSLASH &none &kp LEFT_BRACE &kp RIGHT_BRACE &none &kp GB_POUND_SIGN &kp GRAVE &kp TILDE &kp PIPE &none
+                &kp BACKSLASH &none &kp LEFT_BRACE &kp RIGHT_BRACE &kp GB_EURO &kp GB_POUND_SIGN &kp GRAVE &kp GB_TILDE &kp GB_PIPE &kp GB_NOT
                 &trans &trans &trans &trans &trans &trans
             >;
         };
