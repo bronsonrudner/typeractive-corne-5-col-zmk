@@ -55,14 +55,24 @@
             key-positions = <6 7>;
             bindings = <&kp CAPS>;
         };
-        combo_enter {
+        combo_enter_right {
             timeout-ms = <50>;
             key-positions = <15 16>;
             bindings = <&kp ENTER>;
         };
-        combo_escape {
+        combo_enter_left {
+            timeout-ms = <50>;
+            key-positions = <13 14>;
+            bindings = <&kp ENTER>;
+        };
+        combo_escape_right {
             timeout-ms = <50>;
             key-positions = <26 27>;
+            bindings = <&kp ESC>;
+        };
+        combo_escape_left {
+            timeout-ms = <50>;
+            key-positions = <3 4>;
             bindings = <&kp ESC>;
         };
     };
@@ -75,7 +85,7 @@
 // |  '  |  ,  |  .  |  P  |  Y  |     |  F  |  G  |  C  |  R  |  L  |
 // |  A  |  O  |  E  |  U  |  I  |     |  D  |  H  |  T  |  N  |  S  | 
 // |  /  |  Q  |  J  |  K  |  X  |     |  B  |  M  |  W  |  V  |  Z  |
-//             |     |     | SPC |     | SPC |     |     |
+//             |     |  L4 | _L2 |     | _L1 |  L3 |     |
 // 
 //      Home-row mods: CTRL ALT WIN SHIFT
 //
@@ -83,7 +93,7 @@
                 &kp SQT &kp COMMA &kp DOT &kp P &kp Y                           &kp F &kp G &kp C &kp R &kp L
                 &hm LCTRL A &hm LALT O &hm LWIN E &hm LSHIFT U &kp I            &kp D &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
                 &kp FSLH &kp Q &kp J &kp K &kp X                                &kp B &kp M &kp W &kp V &kp Z
-                &none &mo 5 &lt 2 SPACE                                         &lt 1 SPACE &mo 3 &none
+                &none &mo 4 &lt 2 SPACE                                         &lt 1 SPACE &mo 3 &none
             >;
         };
 
