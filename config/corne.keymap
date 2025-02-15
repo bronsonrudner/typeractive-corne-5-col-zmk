@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
+#define POUND GB_POUND_SIGN
+
 / {
     chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;
@@ -81,76 +83,47 @@
         compatible = "zmk,keymap";
 
         default_layer {
-// -------------------------------     -------------------------------
-// |  '  |  ,  |  .  |  P  |  Y  |     |  F  |  G  |  C  |  R  |  L  |
-// |  A  |  O  |  E  |  U  |  I  |     |  D  |  H  |  T  |  N  |  S  | 
-// |  /  |  Q  |  J  |  K  |  X  |     |  B  |  M  |  W  |  V  |  Z  |
-//             |     |  L4 | _L2 |     | _L1 |  L3 |     |
-// 
-//      Home-row mods: CTRL ALT WIN SHIFT
-//
             bindings = <
-                &kp SQT &kp COMMA &kp DOT &kp P &kp Y                           &kp F &kp G &kp C &kp R &kp L
-                &hm LCTRL A &hm LALT O &hm LWIN E &hm LSHIFT U &kp I            &kp D &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
-                &kp FSLH &kp Q &kp J &kp K &kp X                                &kp B &kp M &kp W &kp V &kp Z
-                &none &mo 4 &lt 2 SPACE                                         &lt 1 SPACE &mo 3 &none
+                &kp SQT &kp COMMA &kp DOT &kp P &kp Y &kp F &kp G &kp C &kp R &kp L
+                &hm LCTRL A &hm LALT O &hm LWIN E &hm LSHIFT U &kp I &kp D &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
+                &kp FSLH &kp Q &kp J &kp K &kp X &kp B &kp M &kp W &kp V &kp Z
+                &none &mo 4 &lt 2 SPACE &lt 1 SPACE &mo 3 &none
             >;
         };
 
-        symbols_1 {
-// -------------------------------     -------------------------------
-// |  !  |  "  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  [  |  ]  |
-// |  ;  |  :  |  +  |  =  |  1  |     |  0  |  _  |  -  |  (  |  )  |
-// |  \  |     |  {  |  }  |  €  |     |  £  |  `  |  ~  |  |  |  ¬  |
-//             |     |     |     |     |     |     |     |
-//
+        SYM {
             bindings = <
-                &kp EXCL &kp GB_DOUBLE_QUOTES &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LEFT_BRACKET &kp RIGHT_BRACKET
-                &kp SEMICOLON &kp COLON &kp PLUS &kp EQUAL &kp N1 &kp N0 &kp UNDERSCORE &kp MINUS &kp LPAR &kp RPAR
-                &kp GB_BACKSLASH &none &kp LEFT_BRACE &kp RIGHT_BRACE &kp GB_EURO &kp GB_POUND_SIGN &kp GRAVE &kp GB_TILDE &kp GB_PIPE &kp GB_NOT
+                &kp EXCL &kp GB_DQT &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT
+                &kp SEMI &kp COLON &kp PLUS &kp EQUAL &kp N1 &kp N0 &kp UNDERSCORE &kp MINUS &kp LPAR &kp RPAR
+                &kp GB_BSLH &none &kp LBRC &kp RBRC &kp GB_EURO &kp POUND &kp GRAVE &kp GB_TILDE &kp GB_PIPE &kp GB_NOT
                 &trans &trans &trans &trans &trans &trans
             >;
         };
 
-        space_2 {
-// -------------------------------     -------------------------------
-// |     |     |     |     |     |     |     |     |     |     |     |
-// |     | CUT | CPY | PST | DSH |     |  0  |  1  |  2  |  3  |  4  |
-// |     |     |     |     |     |     |  5  |  6  |  7  |  8  |  9  |
-//             |     |     |     |     |     |     |     |
+        NUM {
             bindings = <
-                &trans &trans &trans &trans &trans                      &trans &trans &trans &trans &trans
-                &trans &kp LC(X) &kp LC(C) &kp LC(V) &double_shift      &kp N0 &kp N1 &kp N2 &kp N3 &kp N4
-                &trans &trans &trans &trans &trans                      &kp N5 &kp N6 &kp N7 &kp N8 &kp N9
-                              &trans &trans &trans                      &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &kp LC(X) &kp LC(C) &kp LC(V) &double_shift &kp N0 &kp N1 &kp N2 &kp N3 &kp N4
+                &trans &trans &trans &trans &trans &kp N5 &kp N6 &kp N7 &kp N8 &kp N9
+                &trans &trans &trans &trans &trans &trans
             >;
         };
 
-        navigate_3 {
-// -------------------------------     -----------------------------------
-// |     |     |     |     |     |     | HOM | CTR< | PgUp | PgDn | CTR> |
-// |     |     |     |     |     |     | END |  <   |  ^   |  V   |  >   |
-// |     |     |     |     |     |     | INS | Vol- | Whl+ | Whl- | Vol+ |
-//             |     |     |     |     |     |      |      |
+        NAV {
             bindings = <
-                &trans &trans &trans &trans &trans      &kp HOME &kp LC(LEFT) &kp PG_UP &kp PG_DN &kp LC(RIGHT)
-                &trans &trans &trans &trans &trans      &kp END &kp LEFT &kp UP &kp DOWN &kp RIGHT
-                &trans &trans &trans &trans &trans      &kp INSERT &kp C_VOL_DN &trans &trans &kp C_VOL_UP
-                              &trans &trans &trans      &trans &trans &trans
+                &trans &trans &trans &trans &trans &kp HOME &kp LC(LEFT) &kp PG_UP &kp PG_DN &kp LC(RIGHT)
+                &trans &trans &trans &trans &trans &kp END &kp LEFT &kp UP &kp DOWN &kp RIGHT
+                &trans &trans &trans &trans &trans &kp INSERT &kp C_VOL_DN &trans &trans &kp C_VOL_UP
+                &trans &trans &trans &trans &trans &trans
             >;
         };
 
-        function_4 {
-// -------------------------------     -------------------------------
-// | ESC |     | F11 | F12 |     |     |     |     |     |     |     |
-// | F1  | F2  | F3  | F4  | F5  |     |     |     |     |     |     |
-// | F6  | F7  | F8  | F9  | F10 |     |     |     |     |     |     |
-//             |     |     |     |     |     |     |     |
+        FUN {
             bindings = <
-                &kp ESC &trans &kp F11 &kp F12 &trans      &trans &trans &trans &trans &trans
-                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &trans &trans &trans &trans &trans
-                &kp F6 &kp F7 &kp F8 &kp F9 &kp F10        &trans &trans &trans &trans &trans
-                              &trans &trans &trans         &trans &trans &trans
+                &kp ESC &trans &kp F11 &kp F12 &trans &trans &trans &trans &trans &trans
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &trans &trans &trans &trans &trans
+                &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
             >;
         };
     };
