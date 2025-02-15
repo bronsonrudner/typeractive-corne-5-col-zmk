@@ -95,7 +95,7 @@
             bindings = <
                 &kp EXCL &kp GB_DQT &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT
                 &kp SEMI &kp COLON &kp PLUS &kp EQUAL &kp N1 &kp N0 &kp UNDERSCORE &kp MINUS &kp LPAR &kp RPAR
-                &kp GB_BSLH &none &kp LBRC &kp RBRC &kp GB_EURO &kp POUND &kp GRAVE &kp GB_TILDE &kp GB_PIPE &kp GB_NOT
+                &kp GB_BSLH &trans &kp LBRC &kp RBRC &kp GB_EURO &kp POUND &kp GRAVE &kp GB_TILDE &kp GB_PIPE &trans
                 &trans &trans &trans &trans &trans &trans
             >;
         };
@@ -111,9 +111,9 @@
 
         NAV {
             bindings = <
-                &trans &trans &trans &trans &trans &kp HOME &kp LC(LEFT) &kp PG_UP &kp PG_DN &kp LC(RIGHT)
-                &trans &trans &trans &trans &trans &kp END &kp LEFT &kp UP &kp DOWN &kp RIGHT
-                &trans &trans &trans &trans &trans &kp INSERT &kp C_VOL_DN &trans &trans &kp C_VOL_UP
+                &trans &trans &trans &trans &trans &trans &kp HOME &kp PG_UP &kp PG_DN &kp END
+                &trans &trans &trans &trans &trans &kp INSERT &kp LEFT &kp UP &kp DOWN &kp RIGHT
+                &trans &trans &trans &trans &trans &trans &kp C_VOL_DN &trans &trans &kp C_VOL_UP
                 &trans &trans &trans &trans &trans &trans
             >;
         };

@@ -17,7 +17,6 @@ overrides = r"""
 &kp POUND £
 &kp GB_TILDE ~
 &kp GB_PIPE |
-&kp GB_NOT ¬
 &kp LC(X) ✂
 &kp LC(C) 🗐
 &kp LC(V) 📋
@@ -34,6 +33,8 @@ overrides = r"""
 &kp DOWN 🡇
 &kp SPACE ␣
 &kp TAB ⇥
+&kp C_VOL_DN 🔉
+&kp C_VOL_UP 🔊
 """
 
 repo = Path(__file__).parent
