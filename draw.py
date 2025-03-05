@@ -35,12 +35,13 @@ overrides = r"""
 &kp TAB ⇥
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
+&caps_word CAPS_WORD
 """
 
 repo = Path(__file__).parent
 overrides_dict = dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines())
-env = os.environ | dict(KEYMAP_raw_binding_map=json.dumps(overrides_dict))
+env = os.environ | dict(KEYMAP_raw_binding_map=json.dumps(overrides_dict), KEYMAP_separate_combo_diagrams="True")
 with tempfile.NamedTemporaryFile(mode="w+") as f:
     f.write(check_output(["keymap", "parse", "-z", repo / "config/corne.keymap"], env=env, text=True))
     f.flush()
-    repo.joinpath(OUTPUT).write_text(check_output(["keymap", "draw", f.name], text=True))
+    repo.joinpath(OUTPUT).write_text(check_output(["keymap", "draw", f.name], env=env, text=True))
