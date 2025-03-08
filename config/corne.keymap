@@ -102,9 +102,9 @@
 
         EXP {
             bindings = <
-                &kp B &kp Y &kp O &kp U &kp EQUAL &kp GB_DQT &kp L &kp D &kp W &kp V
+                &kp LPAR &kp RPAR &kp UNDERSCORE &kp DOT &kp EQUAL &kp GB_DQT &kp M &kp G &kp W &kp V
                 &hm LCTRL C &hm LALT I &hm LWIN E &hm LSHIFT A &kp COMMA &kp K &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
-                &kp LPAR &kp RPAR &kp UNDERSCORE &kp DOT &kp COLON &kp SQT &kp M &kp G &kp P &kp F
+                &kp B &kp Y &kp O &kp U &kp COLON &kp SQT &kp L &kp D &kp P &kp F
                 &kp Q &lt 5 J &lt 3 SPACE &lt 6 R &lt 4 X &kp Z
             >;
         };
