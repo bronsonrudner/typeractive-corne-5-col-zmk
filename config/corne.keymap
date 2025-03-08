@@ -84,7 +84,7 @@
         combo_exp {
             timeout-ms = <50>;
             key-positions = <9 29>;
-            bindings = <&tog 5>;
+            bindings = <&tog 1>;
         };
     };
     
@@ -96,7 +96,16 @@
                 &kp SQT &kp COMMA &kp DOT &kp P &kp Y &kp F &kp G &kp C &kp R &kp L
                 &hm LCTRL A &hm LALT O &hm LWIN E &hm LSHIFT U &kp I &kp D &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
                 &kp FSLH &kp Q &kp J &kp K &kp X &kp B &kp M &kp W &kp V &kp Z
-                &none &mo 4 &lt 2 SPACE &lt 1 SPACE &mo 3 &none
+                &none &mo 5 &lt 3 SPACE &lt 2 SPACE &mo 4 &none
+            >;
+        };
+
+        EXP {
+            bindings = <
+                &kp B &kp Y &kp O &kp U &kp EQUAL &kp GB_DQT &kp L &kp D &kp W &kp V
+                &hm LCTRL C &hm LALT I &hm LWIN E &hm LSHIFT A &kp COMMA &kp K &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
+                &kp LPAR &kp RPAR &kp UNDERSCORE &kp DOT &kp COLON &kp SQT &kp M &kp G &kp P &kp F
+                &kp Q &lt 5 J &lt 3 SPACE &lt 6 R &lt 4 X &kp Z
             >;
         };
 
@@ -136,12 +145,12 @@
             >;
         };
 
-        EXP {
+        SYM2 {
             bindings = <
-                &kp F &kp P &kp D &kp L &kp UNDERSCORE &kp DOT &kp U &kp O &kp Y &kp B
-                &hm LCTRL S &hm LALT N &hm LWIN T &hm LSHIFT H &kp K &kp COMMA &hm LSHIFT A &hm LWIN E &hm LALT I &hm LCTRL C
-                &kp V &kp W &kp G &kp M &kp SQT &kp COLON &kp LPAR &kp RPAR &kp EQUAL &kp GB_DQT
-                &kp Z &lt 4 J &lt 2 SPACE &lt 1 R &lt 3 X &kp Q
+                &kp EXCL &kp GB_AT &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp STAR &kp LBRC &kp RBRC
+                &kp SEMI &kp GB_TILDE &kp LBKT &kp RBKT &trans &trans &kp MINUS &kp GT &kp LT &kp FSLH
+                &kp QMARK &kp GRAVE &kp GB_PIPE &trans &trans &trans &kp PLUS &trans &trans &kp GB_BSLH
+                &trans &trans &trans &trans &trans &trans
             >;
         };
     };

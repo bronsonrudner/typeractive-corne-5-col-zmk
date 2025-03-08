@@ -14,6 +14,7 @@ overrides = r"""
 &kp GB_HASH #
 &kp GB_BSLH \
 &kp GB_EURO €
+&kp GB_AT @
 &kp POUND £
 &kp GB_TILDE ~
 &kp GB_PIPE |
