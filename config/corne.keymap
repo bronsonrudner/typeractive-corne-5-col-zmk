@@ -41,50 +41,73 @@
     //       30 31 32   33 34 35
     combos {
         compatible = "zmk,combos";
+        combo_backspace {
+            timeout-ms = <40>;
+            key-positions = <16 17>;
+            bindings = <&kp BACKSPACE>;
+        };
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <11 12 13>;
+            bindings = <&kp ENTER>;
+        };
         combo_tab {
             timeout-ms = <50>;
             key-positions = <2 3>;
             bindings = <&kp TAB>;
         };
-        combo_backspace {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp BACKSPACE>;
-        };
         combo_delete {
             timeout-ms = <50>;
-            key-positions = <22 23>;
+            key-positions = <10 11>;
             bindings = <&kp DEL>;
         };
-        combo_caps_word {
-            timeout-ms = <50>;
-            key-positions = <13 16>;
-            bindings = <&caps_word>;
-        };
-        combo_enter_right {
-            timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&kp ENTER>;
-        };
-        combo_enter_left {
-            timeout-ms = <50>;
-            key-positions = <13 14>;
-            bindings = <&kp ENTER>;
-        };
-        combo_enter_thumbs {
-            timeout-ms = <50>;
-            key-positions = <32 33>;
-            bindings = <&kp ENTER>;
+        combo_caps {
+            timeout-ms = <40>;
+            key-positions = <17 18>;
+            bindings = <&kp CAPS>;
         };
         combo_escape {
             timeout-ms = <50>;
             key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
+
+        combo_cut {
+            timeout-ms = <50>;
+            key-positions = <10 11 12>;
+            bindings = <&kp LC(X)>;
+        };
+        combo_copy {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp LC(C)>;
+        };
+        combo_paste {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp LC(V)>;
+        };
+
         combo_exp {
             timeout-ms = <50>;
             key-positions = <9 29>;
             bindings = <&tog 1>;
+        };
+        combo_2shift {
+            timeout-ms = <50>;
+            key-positions = <13 14>;
+            bindings = <&double_shift>;
+        };
+
+        combo_slash {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp FSLH>;
+        };
+        combo_colon {
+            timeout-ms = <50>;
+            key-positions = <16 18>;
+            bindings = <&kp COLON>;
         };
     };
     
@@ -102,9 +125,9 @@
 
         EXP {
             bindings = <
-                &kp LPAR &kp RPAR &kp UNDERSCORE &kp DOT &kp EQUAL &kp GB_DQT &kp M &kp G &kp W &kp V
-                &hm LCTRL C &hm LALT I &hm LWIN E &hm LSHIFT A &kp COMMA &kp K &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
-                &kp B &kp Y &kp O &kp U &kp COLON &kp SQT &kp L &kp D &kp P &kp F
+                &kp LPAR &kp RPAR &kp UNDERSCORE &kp COMMA &kp MINUS &kp GB_DQT &kp M &kp G &kp W &kp V
+                &hm LCTRL C &hm LALT I &hm LWIN E &hm LSHIFT A &kp DOT &kp K &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
+                &kp B &kp Y &kp O &kp U &kp EQUAL &kp SQT &kp L &kp D &kp P &kp F
                 &kp Q &lt 5 J &lt 3 SPACE &lt 6 R &lt 4 X &kp Z
             >;
         };
@@ -120,9 +143,9 @@
 
         NUM {
             bindings = <
+                &trans &trans &trans &kp N8 &trans &trans &kp N9 &trans &trans &trans
+                &kp N6 &kp N4 &kp N2 &kp N0 &trans &trans &kp N1 &kp N3 &kp N5 &kp N7
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &kp LC(X) &kp LC(C) &kp LC(V) &double_shift &kp N0 &kp N1 &kp N2 &kp N3 &kp N4
-                &trans &trans &trans &trans &trans &kp N5 &kp N6 &kp N7 &kp N8 &kp N9
                 &trans &trans &trans &trans &trans &trans
             >;
         };
