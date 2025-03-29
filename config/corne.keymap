@@ -117,7 +117,7 @@
         default_layer {
             bindings = <
                 &kp SQT &kp COMMA &kp DOT &kp P &kp Y &kp F &kp G &kp C &kp R &kp L
-                &hm LCTRL A &hm LALT O &hm LWIN E &hm LSHIFT U &kp I &kp D &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
+                &hm LALT A &hm LWIN O &hm LCTRL E &hm LSHIFT U &kp I &kp D &hm LSHIFT H &hm LCTRL T &hm LWIN N &hm LALT S
                 &kp FSLH &kp Q &kp J &kp K &kp X &kp B &kp M &kp W &kp V &kp Z
                 &none &mo 5 &lt 3 SPACE &lt 2 SPACE &mo 4 &none
             >;
@@ -125,9 +125,9 @@
 
         EXP {
             bindings = <
-                &kp LPAR &kp RPAR &kp UNDERSCORE &kp COMMA &kp MINUS &kp GB_DQT &kp M &kp G &kp W &kp V
-                &hm LCTRL C &hm LALT I &hm LWIN E &hm LSHIFT A &kp DOT &kp K &hm LSHIFT H &hm LWIN T &hm LALT N &hm LCTRL S
-                &kp B &kp Y &kp O &kp U &kp EQUAL &kp SQT &kp L &kp D &kp P &kp F
+                &kp LPAR &kp RPAR &kp SQT &kp COMMA &kp UNDERSCORE &kp GB_DQT &kp M &kp G &kp W &kp V
+                &hm LALT C &hm LWIN I &hm LCTRL E &hm LSHIFT A &kp DOT &kp K &hm LSHIFT H &hm LCTRL T &hm LWIN N &hm LALT S
+                &kp B &kp Y &kp O &kp U &kp MINUS &kp EQUAL &kp L &kp D &kp P &kp F
                 &kp Q &lt 5 J &lt 3 SPACE &lt 6 R &lt 4 X &kp Z
             >;
         };
