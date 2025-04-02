@@ -42,7 +42,7 @@
     combos {
         compatible = "zmk,combos";
         combo_backspace {
-            timeout-ms = <40>;
+            timeout-ms = <30>;
             key-positions = <16 17>;
             bindings = <&kp BACKSPACE>;
         };
@@ -62,7 +62,7 @@
             bindings = <&kp DEL>;
         };
         combo_caps {
-            timeout-ms = <40>;
+            timeout-ms = <30>;
             key-positions = <17 18>;
             bindings = <&kp CAPS>;
         };
@@ -73,19 +73,24 @@
         };
 
         combo_cut {
-            timeout-ms = <50>;
+            timeout-ms = <60>;
             key-positions = <10 11 12>;
             bindings = <&kp LC(X)>;
         };
         combo_copy {
-            timeout-ms = <50>;
+            timeout-ms = <40>;
             key-positions = <11 12>;
             bindings = <&kp LC(C)>;
         };
         combo_paste {
-            timeout-ms = <50>;
+            timeout-ms = <40>;
             key-positions = <12 13>;
             bindings = <&kp LC(V)>;
+        };
+        combo_undo {
+            timeout-ms = <50>;
+            key-positions = <16 17 18>;
+            bindings = <&kp ENTER>;
         };
 
         combo_exp {
@@ -99,15 +104,30 @@
             bindings = <&double_shift>;
         };
 
-        combo_slash {
+        combo_semicolon {
             timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp FSLH>;
+            key-positions = <0 10>;
+            bindings = <&kp SEMI>;
         };
         combo_colon {
             timeout-ms = <50>;
-            key-positions = <16 18>;
+            key-positions = <1 11>;
             bindings = <&kp COLON>;
+        };
+        combo_lpar {
+            timeout-ms = <50>;
+            key-positions = <2 12>;
+            bindings = <&kp LPAR>;
+        };
+        combo_rpar {
+            timeout-ms = <50>;
+            key-positions = <3 13>;
+            bindings = <&kp RPAR>;
+        };
+        combo_equal {
+            timeout-ms = <50>;
+            key-positions = <6 16>;
+            bindings = <&kp EQUAL>;
         };
     };
     
@@ -116,28 +136,19 @@
 
         default_layer {
             bindings = <
-                &kp SQT &kp COMMA &kp DOT &kp P &kp Y &kp F &kp G &kp C &kp R &kp L
-                &hm LALT A &hm LWIN O &hm LCTRL E &hm LSHIFT U &kp I &kp D &hm LSHIFT H &hm LCTRL T &hm LWIN N &hm LALT S
-                &kp FSLH &kp Q &kp J &kp K &kp X &kp B &kp M &kp W &kp V &kp Z
-                &none &mo 5 &lt 3 SPACE &lt 2 SPACE &mo 4 &none
-            >;
-        };
-
-        EXP {
-            bindings = <
-                &kp LPAR &kp RPAR &kp SQT &kp COMMA &kp UNDERSCORE &kp GB_DQT &kp M &kp G &kp W &kp V
-                &hm LALT C &hm LWIN I &hm LCTRL E &hm LSHIFT A &kp DOT &kp K &hm LSHIFT H &hm LCTRL T &hm LWIN N &hm LALT S
-                &kp B &kp Y &kp O &kp U &kp MINUS &kp EQUAL &kp L &kp D &kp P &kp F
-                &kp Q &lt 5 J &lt 3 SPACE &lt 6 R &lt 4 X &kp Z
+                &kp SQT    &kp GB_DQT &kp DOT     &kp COMMA    &kp MINUS      &kp X      &kp M        &kp G       &kp W      &kp V
+                &hm LALT C &hm LWIN I &hm LCTRL E &hm LSHIFT A &kp UNDERSCORE &kp K      &hm LSHIFT H &hm LCTRL T &hm LWIN N &hm LALT S
+                &kp B      &kp Y      &kp O       &kp U        &kp FSLH       &kp J      &kp L        &kp D       &kp P      &kp F
+                                      &trans      &lt 4 Q      &lt 2 SPACE    &lt 1 R    &lt 3 Z      &trans
             >;
         };
 
         SYM {
             bindings = <
-                &kp EXCL &kp GB_DQT &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp STAR &kp LBKT &kp RBKT
-                &kp SEMI &kp COLON &kp PLUS &kp EQUAL &kp N1 &kp N0 &kp UNDERSCORE &kp MINUS &kp LPAR &kp RPAR
-                &kp GB_BSLH &trans &kp LBRC &kp RBRC &kp GB_EURO &kp POUND &kp GRAVE &kp GB_TILDE &kp GB_PIPE &trans
-                &trans &trans &trans &trans &trans &trans
+                &kp EXCL     &kp GB_AT &kp GB_HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS &kp STAR &kp LT   &kp GT
+                &kp GB_TILDE &kp GRAVE &kp LBKT    &kp RBKT &kp GB_PIPE &trans    &kp LBRC &kp RBRC &kp PLUS &kp GB_BSLH
+                &trans       &trans    &trans      &trans   &trans      &trans    &trans   &trans   &trans   &trans
+                                       &trans      &trans   &trans      &trans    &trans   &trans
             >;
         };
 
@@ -161,18 +172,9 @@
 
         FUN {
             bindings = <
-                &kp ESC &trans &kp F11 &kp F12 &trans &trans &trans &trans &trans &trans
-                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &trans &trans &trans &trans &trans
-                &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-            >;
-        };
-
-        SYM2 {
-            bindings = <
-                &kp EXCL &kp GB_AT &kp GB_HASH &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp STAR &kp LBRC &kp RBRC
-                &kp SEMI &kp GB_TILDE &kp LBKT &kp RBKT &trans &trans &kp MINUS &kp GT &kp LT &kp FSLH
-                &kp QMARK &kp GRAVE &kp GB_PIPE &trans &trans &trans &kp PLUS &trans &trans &kp GB_BSLH
+                &kp F9 &kp F10 &kp F11 &kp F12 &trans &trans &trans &trans &trans &trans
+                &kp F5 &kp F6  &kp F7  &kp F8  &trans &trans &trans &trans &trans &trans
+                &kp F1 &kp F2  &kp F3  &kp F4  &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans
             >;
         };
