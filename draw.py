@@ -18,22 +18,20 @@ overrides = r"""
 &kp POUND £
 &kp GB_TILDE ~
 &kp GB_PIPE |
-&kp LC(X) ✂
-&kp LC(C) 🗐
-&kp LC(V) 📋
+&kp LC(X) CUT
+&kp LC(C) COPY
+&kp LC(V) PASTE
+&kp LC(Z) UNDO
 &double_shift ⇧⇧
 &kp LCTRL ✲
 &kp LALT ⎇
 &kp LWIN ❖
 &kp LSHIFT ⇧
-&kp ENTER ⏎
-&kp DEL ⌦
 &kp LEFT 🡄
 &kp RIGHT 🡆
 &kp UP 🡅
 &kp DOWN 🡇
 &kp SPACE ␣
-&kp TAB ⇥
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
 &caps_word CAPS_WORD
