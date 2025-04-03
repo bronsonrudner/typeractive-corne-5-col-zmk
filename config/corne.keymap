@@ -9,7 +9,13 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
-#define POUND GB_POUND_SIGN
+#define COMBO(name, timeout, keys, binding) combo_##name { timeout-ms = <timeout>; key-positions = <keys>; bindings = <&kp binding>; }
+#define COMBO(NAME, TERM, KEYPOS, BINDINGS) \
+  combo_##NAME { \
+    timeout-ms = <TERM>; \
+    key-positions = <KEYPOS>; \
+    bindings = <BINDINGS>; \
+  };
 
 / {
     chosen {
@@ -41,83 +47,37 @@
     //       30 31 32   33 34 35
     combos {
         compatible = "zmk,combos";
-        combo_backspace {
-            timeout-ms = <30>;
-            key-positions = <16 17>;
-            bindings = <&kp BACKSPACE>;
-        };
-        combo_enter {
-            timeout-ms = <50>;
-            key-positions = <11 12 13>;
-            bindings = <&kp ENTER>;
-        };
-        combo_tab {
-            timeout-ms = <50>;
-            key-positions = <2 3>;
-            bindings = <&kp TAB>;
-        };
-        combo_delete {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
-            bindings = <&kp DEL>;
-        };
-        combo_caps {
-            timeout-ms = <30>;
-            key-positions = <17 18>;
-            bindings = <&kp CAPS>;
-        };
-        combo_escape {
-            timeout-ms = <50>;
-            key-positions = <1 2>;
-            bindings = <&kp ESC>;
-        };
 
-        combo_cut {
-            timeout-ms = <60>;
-            key-positions = <10 11 12>;
-            bindings = <&kp LC(X)>;
-        };
-        combo_copy {
-            timeout-ms = <40>;
-            key-positions = <11 12>;
-            bindings = <&kp LC(C)>;
-        };
-        combo_paste {
-            timeout-ms = <40>;
-            key-positions = <12 13>;
-            bindings = <&kp LC(V)>;
-        };
-        combo_undo {
-            timeout-ms = <50>;
-            key-positions = <16 17 18>;
-            bindings = <&kp LC(Z)>;
-        };
+        COMBO(backspace, 30, 16 17, &kp BACKSPACE)
+        COMBO(enter, 50, 11 12 13, &kp ENTER)
+        COMBO(tab, 50, 2 3, &kp TAB)
+        COMBO(delete, 50, 10 11, &kp DEL)
+        COMBO(caps, 30, 17 18, &kp CAPS)
+        COMBO(escape, 50, 1 2, &kp ESC)
 
-        combo_equal {
-            timeout-ms = <50>;
-            key-positions = <3 13>;
-            bindings = <&kp EQUAL>;
-        };
-        combo_lpar {
-            timeout-ms = <50>;
-            key-positions = <6 16>;
-            bindings = <&kp LPAR>;
-        };
-        combo_rpar {
-            timeout-ms = <50>;
-            key-positions = <7 17>;
-            bindings = <&kp RPAR>;
-        };
-        combo_colon {
-            timeout-ms = <50>;
-            key-positions = <8 18>;
-            bindings = <&kp COLON>;
-        };
-        combo_semicolon {
-            timeout-ms = <50>;
-            key-positions = <9 19>;
-            bindings = <&kp SEMI>;
-        };
+        COMBO(cut, 60, 10 11 12, &kp LC(X))
+        COMBO(copy, 40, 11 12, &kp LC(C))
+        COMBO(paste, 40, 12 13, &kp LC(V))
+        COMBO(undo, 50, 16 17 18, &kp LC(Z))
+
+        COMBO(lbkt, 50, 1 11, &kp LBKT)
+        COMBO(rbkt, 50, 2 12, &kp RBKT)
+        COMBO(equal, 50, 3 13, &kp EQUAL)
+        COMBO(lpar, 50, 6 16, &kp LPAR)
+        COMBO(rpar, 50, 7 17, &kp RPAR)
+        COMBO(colon, 50, 8 18, &kp COLON)
+        COMBO(semicolon, 50, 9 19, &kp SEMI)
+
+        COMBO(six, 50, 10 20, &kp N6)
+        COMBO(four, 50, 11 21, &kp N4)
+        COMBO(two, 50, 12 22, &kp N2)
+        COMBO(zero, 50, 13 23, &kp N0)
+        COMBO(eight, 50, 14 24, &kp N8)
+        COMBO(nine, 50, 15 25, &kp N9)
+        COMBO(one, 50, 16 26, &kp N1)
+        COMBO(three, 50, 17 27, &kp N3)
+        COMBO(five, 50, 18 28, &kp N5)
+        COMBO(seven, 50, 19 29, &kp N7)
 
         combo_2shift {
             timeout-ms = <50>;

@@ -37,9 +37,16 @@ overrides = r"""
 &caps_word CAPS_WORD
 """
 
+combos_to_separate = ["enter", "cut", "undo"]
+
+overrides = dict(
+    raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()),
+    zmk_combos={f"combo_{combo}": {"draw_separate": "True"} for combo in combos_to_separate},
+)
+
+env = os.environ | {f"KEYMAP_{k}": json.dumps(v) for k, v in overrides.items()}
+
 repo = Path(__file__).parent
-overrides_dict = dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines())
-env = os.environ | dict(KEYMAP_raw_binding_map=json.dumps(overrides_dict), KEYMAP_separate_combo_diagrams="True")
 with tempfile.NamedTemporaryFile(mode="w+") as f:
     f.write(check_output(["keymap", "parse", "-z", repo / "config/corne.keymap"], env=env, text=True))
     f.flush()
