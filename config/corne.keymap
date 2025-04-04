@@ -15,6 +15,7 @@
     timeout-ms = <TERM>; \
     key-positions = <KEYPOS>; \
     bindings = <BINDINGS>; \
+    layers = <0>; \
   };
 
 / {
@@ -40,11 +41,15 @@
             bindings = <&macro_tap &kp LSHFT>, <&macro_tap &kp LSHFT>;
         };
     };
-
-    //  0  1  2  3  4    5  6  7  8  9
-    // 10 11 12 13 14   15 16 17 18 19
-    // 20 21 22 23 24   25 26 27 28 29
-    //       30 31 32   33 34 35
+    
+    /* Key positions
+      ╭─────────────────╮  ╭─────────────────╮
+      |  0  1  2  3  4  |  |   5  6  7  8  9 |
+      | 10 11 12 13 14  |  |  15 16 17 18 19 |
+      | 20 21 22 23 24  |  |  25 26 27 28 29 |
+      ╰──────╮ 30 31 32 |  | 33 34 35 ╭──────╯
+             ╰──────────╯  ╰──────────╯
+    */
     combos {
         compatible = "zmk,combos";
 
@@ -60,9 +65,12 @@
         COMBO(paste, 40, 12 13, &kp LC(V))
         COMBO(undo, 50, 16 17 18, &kp LC(Z))
 
+        COMBO(pipe, 50, 0 10, &kp GB_PIPE)
         COMBO(lbkt, 50, 1 11, &kp LBKT)
         COMBO(rbkt, 50, 2 12, &kp RBKT)
         COMBO(equal, 50, 3 13, &kp EQUAL)
+        COMBO(lbrc, 50, 4 14, &kp LBRC)
+        COMBO(rbrc, 50, 5 15, &kp RBRC)
         COMBO(lpar, 50, 6 16, &kp LPAR)
         COMBO(rpar, 50, 7 17, &kp RPAR)
         COMBO(colon, 50, 8 18, &kp COLON)
@@ -79,11 +87,7 @@
         COMBO(five, 50, 18 28, &kp N5)
         COMBO(seven, 50, 19 29, &kp N7)
 
-        combo_2shift {
-            timeout-ms = <50>;
-            key-positions = <13 14>;
-            bindings = <&double_shift>;
-        };
+        COMBO(2shift, 50, 13 14, &double_shift)
     };
     
     keymap {
