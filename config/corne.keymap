@@ -15,7 +15,7 @@
     key-positions = <KEYPOS>; \
     bindings = <BINDINGS>; \
     layers = <0>; \
-    require-prior-idle-ms = <PRIORIDLE>; \
+    require-prior-idle-ms = PRIORIDLE; \
   };
 
 #define HOMEROWMODCOMMON \
