@@ -9,7 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
-#define COMBO(name, timeout, keys, binding) combo_##name { timeout-ms = <timeout>; key-positions = <keys>; bindings = <&kp binding>; }
 #define COMBO(NAME, TERM, KEYPOS, BINDINGS, PRIORIDLE) \
   combo_##NAME { \
     timeout-ms = <TERM>; \
