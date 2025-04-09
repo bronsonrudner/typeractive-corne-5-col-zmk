@@ -10,12 +10,13 @@
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
 #define COMBO(name, timeout, keys, binding) combo_##name { timeout-ms = <timeout>; key-positions = <keys>; bindings = <&kp binding>; }
-#define COMBO(NAME, TERM, KEYPOS, BINDINGS) \
+#define COMBO(NAME, TERM, KEYPOS, BINDINGS, PRIORIDLE) \
   combo_##NAME { \
     timeout-ms = <TERM>; \
     key-positions = <KEYPOS>; \
     bindings = <BINDINGS>; \
     layers = <0>; \
+    require-prior-idle-ms = <PRIORIDLE> \
   };
 
 #define HOMEROWMODCOMMON \
@@ -91,41 +92,41 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &kp BACKSPACE)
-        COMBO(enter, 50, 11 12 13, &kp ENTER)
-        COMBO(tab, 40, 2 3, &kp TAB)
-        COMBO(delete, 50, 10 11, &kp DEL)
-        COMBO(caps, 30, 17 18, &kp CAPS)
-        COMBO(escape, 50, 1 2, &kp ESC)
+        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 125)
+        COMBO(enter, 50, 11 12 13, &kp ENTER, -1)
+        COMBO(tab, 40, 2 3, &kp TAB, 125)
+        COMBO(delete, 50, 10 11, &kp DEL, -1)
+        COMBO(caps, 30, 17 18, &kp CAPS, -1)
+        COMBO(escape, 50, 1 2, &kp ESC, -1)
 
-        COMBO(cut, 60, 10 11 12, &kp LC(X))
-        COMBO(copy, 40, 11 12, &kp LC(C))
-        COMBO(paste, 40, 12 13, &kp LC(V))
-        COMBO(undo, 50, 16 17 18, &kp LC(Z))
+        COMBO(cut, 60, 10 11 12, &kp LC(X), -1)
+        COMBO(copy, 40, 11 12, &kp LC(C), -1)
+        COMBO(paste, 40, 12 13, &kp LC(V), 125)
+        COMBO(undo, 50, 16 17 18, &kp LC(Z), -1)
 
-        COMBO(pipe, 50, 0 10, &kp GB_PIPE)
-        COMBO(lbkt, 50, 1 11, &kp LBKT)
-        COMBO(rbkt, 50, 2 12, &kp RBKT)
-        COMBO(equal, 50, 3 13, &kp EQUAL)
-        COMBO(lbrc, 50, 4 14, &kp LBRC)
-        COMBO(rbrc, 50, 5 15, &kp RBRC)
-        COMBO(lpar, 50, 6 16, &kp LPAR)
-        COMBO(rpar, 50, 7 17, &kp RPAR)
-        COMBO(colon, 50, 8 18, &kp COLON)
-        COMBO(semicolon, 50, 9 19, &kp SEMI)
+        COMBO(pipe, 50, 0 10, &kp GB_PIPE, -1)
+        COMBO(lbkt, 50, 1 11, &kp LBKT, -1)
+        COMBO(rbkt, 50, 2 12, &kp RBKT, -1)
+        COMBO(equal, 50, 3 13, &kp EQUAL, -1)
+        COMBO(lbrc, 50, 4 14, &kp LBRC, -1)
+        COMBO(rbrc, 50, 5 15, &kp RBRC, -1)
+        COMBO(lpar, 50, 6 16, &kp LPAR, -1)
+        COMBO(rpar, 50, 7 17, &kp RPAR, -1)
+        COMBO(colon, 50, 8 18, &kp COLON, -1)
+        COMBO(semicolon, 50, 9 19, &kp SEMI, -1)
 
-        COMBO(six, 50, 10 20, &kp N6)
-        COMBO(four, 50, 11 21, &kp N4)
-        COMBO(two, 50, 12 22, &kp N2)
-        COMBO(zero, 50, 13 23, &kp N0)
-        COMBO(eight, 50, 14 24, &kp N8)
-        COMBO(nine, 50, 15 25, &kp N9)
-        COMBO(one, 50, 16 26, &kp N1)
-        COMBO(three, 50, 17 27, &kp N3)
-        COMBO(five, 50, 18 28, &kp N5)
-        COMBO(seven, 50, 19 29, &kp N7)
+        COMBO(six, 50, 10 20, &kp N6, -1)
+        COMBO(four, 50, 11 21, &kp N4, -1)
+        COMBO(two, 50, 12 22, &kp N2, -1)
+        COMBO(zero, 50, 13 23, &kp N0, -1)
+        COMBO(eight, 50, 14 24, &kp N8, -1)
+        COMBO(nine, 50, 15 25, &kp N9, -1)
+        COMBO(one, 50, 16 26, &kp N1, -1)
+        COMBO(three, 50, 17 27, &kp N3, -1)
+        COMBO(five, 50, 18 28, &kp N5, -1)
+        COMBO(seven, 50, 19 29, &kp N7, -1)
 
-        COMBO(2shift, 50, 13 14, &double_shift)
+        COMBO(2shift, 50, 13 14, &double_shift, -1)
     };
     
     keymap {
