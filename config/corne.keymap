@@ -78,6 +78,25 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <125>;
         };
+
+        mslash: morph_slash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp GB_BSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        munder: morph_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp UNDERSCORE>, <&kp QUESTION>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mminus: morph_minus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp PLUS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -101,37 +120,37 @@
 
         SLOW_COMBO(backspace, 30, 16 17, &kp BACKSPACE, 125)
         COMBO(enter, 50, 11 12 13, &kp ENTER)
-        SLOW_COMBO(tab, 40, 2 3, &kp TAB, 125)
+        SLOW_COMBO(tab, 35, 2 3, &kp TAB, 125)
         COMBO(delete, 50, 10 11, &kp DEL)
         COMBO(caps, 30, 17 18, &kp CAPS)
-        COMBO(escape, 50, 1 2, &kp ESC)
+        SLOW_COMBO(escape, 35, 1 2, &kp ESC, 300)
 
         COMBO(cut, 60, 10 11 12, &kp LC(X))
         COMBO(copy, 40, 11 12, &kp LC(C))
         SLOW_COMBO(paste, 40, 12 13, &kp LC(V), 125)
         COMBO(undo, 50, 16 17 18, &kp LC(Z))
 
-        COMBO(pipe, 50, 0 10, &kp GB_PIPE)
-        COMBO(lbkt, 50, 1 11, &kp LBKT)
-        COMBO(rbkt, 50, 2 12, &kp RBKT)
-        COMBO(equal, 50, 3 13, &kp EQUAL)
-        COMBO(lbrc, 50, 4 14, &kp LBRC)
-        COMBO(rbrc, 50, 5 15, &kp RBRC)
-        COMBO(lpar, 50, 6 16, &kp LPAR)
-        COMBO(rpar, 50, 7 17, &kp RPAR)
-        COMBO(colon, 50, 8 18, &kp COLON)
-        COMBO(semicolon, 50, 9 19, &kp SEMI)
+        COMBO(pipe, 70, 0 10, &kp GB_PIPE)
+        COMBO(lbkt, 70, 1 11, &kp LBKT)
+        COMBO(rbkt, 70, 2 12, &kp RBKT)
+        COMBO(equal, 70, 3 13, &kp EQUAL)
+        COMBO(lbrc, 70, 4 14, &kp LBRC)
+        COMBO(rbrc, 70, 5 15, &kp RBRC)
+        COMBO(lpar, 70, 6 16, &kp LPAR)
+        COMBO(rpar, 70, 7 17, &kp RPAR)
+        COMBO(colon, 70, 8 18, &kp COLON)
+        COMBO(semicolon, 70, 9 19, &kp SEMI)
 
-        COMBO(six, 50, 10 20, &kp N6)
-        COMBO(four, 50, 11 21, &kp N4)
-        COMBO(two, 50, 12 22, &kp N2)
-        COMBO(zero, 50, 13 23, &kp N0)
-        COMBO(eight, 50, 14 24, &kp N8)
-        COMBO(nine, 50, 15 25, &kp N9)
-        COMBO(one, 50, 16 26, &kp N1)
-        COMBO(three, 50, 17 27, &kp N3)
-        COMBO(five, 50, 18 28, &kp N5)
-        COMBO(seven, 50, 19 29, &kp N7)
+        COMBO(six, 70, 10 20, &kp N6)
+        COMBO(four, 70, 11 21, &kp N4)
+        COMBO(two, 70, 12 22, &kp N2)
+        COMBO(zero, 70, 13 23, &kp N0)
+        COMBO(eight, 70, 14 24, &kp N8)
+        COMBO(nine, 70, 15 25, &kp N9)
+        COMBO(one, 70, 16 26, &kp N1)
+        COMBO(three, 70, 17 27, &kp N3)
+        COMBO(five, 70, 18 28, &kp N5)
+        COMBO(seven, 70, 19 29, &kp N7)
 
         COMBO(2shift, 50, 13 14, &double_shift)
     };
@@ -141,28 +160,19 @@
 
         default_layer {
             bindings = <
-                &kp B       &kp Y       &kp O        &kp U         &kp MINUS      &kp J      &kp L         &kp D        &kp P       &kp F
-                &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHIFT A &kp UNDERSCORE &kp K      &hrs LSHIFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &kp FSLH       &kp X      &kp M         &kp G        &kp W       &kp V
-                                        &trans       &lt 4 Q       &lt 2 SPACE    &lt 1 R    &lt 3 Z       &trans
+                &kp B       &kp Y       &kp O        &kp U         &mminus        &kp J      &kp L         &kp D        &kp P       &kp F
+                &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHIFT A &munder        &kp K      &hrs LSHIFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
+                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &mslash        &kp X      &kp M         &kp G        &kp W       &kp V
+                                        &trans       &lt 3 Q       &kp SPACE      &lt 1 R    &lt 2 Z       &trans
             >;
         };
 
         SYM {
             bindings = <
                 &kp EXCL     &kp GB_AT &kp GB_HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS &kp STAR &kp LT   &kp GT
-                &kp GB_TILDE &kp GRAVE &kp LBKT    &kp RBKT &kp GB_PIPE &trans    &kp LBRC &kp RBRC &kp PLUS &kp GB_BSLH
+                &kp GB_TILDE &kp GRAVE &trans      &trans   &trans      &trans    &trans   &trans   &trans   &trans
                 &trans       &trans    &trans      &trans   &trans      &trans    &trans   &trans   &trans   &trans
                                        &trans      &trans   &trans      &trans    &trans   &trans
-            >;
-        };
-
-        NUM {
-            bindings = <
-                &trans &trans &trans &kp N8 &trans &trans &kp N9 &trans &trans &trans
-                &kp N6 &kp N4 &kp N2 &kp N0 &trans &trans &kp N1 &kp N3 &kp N5 &kp N7
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
             >;
         };
 
