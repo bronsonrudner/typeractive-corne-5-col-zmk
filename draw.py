@@ -10,6 +10,7 @@ OUTPUT = "corne.svg"
 # https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
 overrides = r"""
 &kp BACKSPACE ⌫
+&ln BACKSPACE LC(BACKSPACE) Ctl⌫
 &kp GB_DQT "
 &kp GB_HASH #
 &kp GB_BSLH \
@@ -37,7 +38,7 @@ overrides = r"""
 &caps_word CAPS_WORD
 """
 
-combos_to_separate = ["enter", "cut", "undo"]
+combos_to_separate = ["enter", "cut", "escape", "gam", "caps"]
 
 overrides = dict(
     raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()),
