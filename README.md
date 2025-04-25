@@ -1,8 +1,8 @@
-<h1 align="center">
-  <img alt="keymap-drawer logo" src="/corne.svg" max-width="100%"/>
-</h1>
+# Typeractive Corne ZMK Config
 
-#### Getting Started
+![keymap-drawer logo](/corne.svg)
+
+## Getting Started
 
 Install [Docker Desktop](https://www.docker.com/products/docker-desktop),
 [VS Code](https://code.visualstudio.com/) and
