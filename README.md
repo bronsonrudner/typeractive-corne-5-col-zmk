@@ -44,3 +44,12 @@ cd /workspaces/zmk
 rm -r build
 west build -s app -d build/left -b nice_nano_v2 -S studio-rpc-usb-uart -- -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=corne_left
 ```
+
+To update the visual
+
+```bash
+apt install pipx
+pipx install keymap-drawer
+python3 -m pipx ensurepath
+python3 draw.py
+```
