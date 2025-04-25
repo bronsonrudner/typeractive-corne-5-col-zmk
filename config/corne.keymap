@@ -9,13 +9,16 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
-#define COMBO(NAME, TERM, KEYPOS, BINDINGS) \
+#define COMBO(NAME, TERM, KEYPOS, BINDINGS, LAYERS, PRIORIDLE) \
   combo_##NAME { \
     timeout-ms = <TERM>; \
     key-positions = <KEYPOS>; \
     bindings = <BINDINGS>; \
-    layers = <0>; \
+    layers = <LAYERS>; \
+    require-prior-idle-ms = <PRIORIDLE>; \
   };
+
+#define VCOMBO(NAME, KEYPOS, BINDINGS) COMBO(NAME, 90, KEYPOS, BINDINGS, 0, 0)
 
 #define SLOW_COMBO(NAME, TERM, KEYPOS, BINDINGS, PRIORIDLE) \
   combo_##NAME { \
@@ -119,41 +122,41 @@
     combos {
         compatible = "zmk,combos";
 
-        SLOW_COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 125)
-        COMBO(enter, 50, 11 12 13, &kp ENTER)
-        COMBO(caps, 50, 16 17 18, &kp CAPS)
-        SLOW_COMBO(tab, 30, 2 3, &kp TAB, 125)
-        COMBO(delete, 50, 10 11, &kp DEL)
-        SLOW_COMBO(escape, 60, 0 1 2, &kp ESC, 300)
+        COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 0, 125)
+        COMBO(enter, 50, 11 12 13, &kp ENTER, 0, 0)
+        COMBO(caps, 50, 16 17 18, &kp CAPS, 0, 0)
+        COMBO(tab, 30, 2 3, &kp TAB, 0, 125)
+        COMBO(delete, 50, 10 11, &kp DEL, 0, 0)
+        COMBO(escape, 60, 0 1 2, &kp ESC, 0, 125)
 
-        COMBO(cut, 60, 10 11 12, &kp LC(X))
-        COMBO(copy, 40, 11 12, &kp LC(C))
-        SLOW_COMBO(paste, 40, 12 13, &kp LC(V), 125)
+        COMBO(cut, 60, 10 11 12, &kp LC(X), 0, 125)
+        COMBO(copy, 40, 11 12, &kp LC(C), 0, 125)
+        COMBO(paste, 40, 12 13, &kp LC(V), 0, 125)
 
-        COMBO(pipe, 90, 0 10, &kp GB_PIPE)
-        COMBO(lbkt, 90, 1 11, &kp LBKT)
-        COMBO(rbkt, 90, 2 12, &kp RBKT)
-        COMBO(equal, 90, 3 13, &kp EQUAL)
-        COMBO(q, 90, 4 14, &kp Q)
-        COMBO(z, 90, 5 15, &kp Z)
-        COMBO(lpar, 90, 6 16, &kp LPAR)
-        COMBO(rpar, 90, 7 17, &kp RPAR)
-        COMBO(colon, 90, 8 18, &kp COLON)
-        COMBO(semicolon, 90, 9 19, &kp SEMI)
+        VCOMBO(pipe, 0 10, &kp GB_PIPE)
+        VCOMBO(lbkt, 1 11, &kp LBKT)
+        VCOMBO(rbkt, 2 12, &kp RBKT)
+        VCOMBO(equal, 3 13, &kp EQUAL)
+        VCOMBO(q, 4 14, &kp Q)
+        VCOMBO(z, 5 15, &kp Z)
+        VCOMBO(lpar, 6 16, &kp LPAR)
+        VCOMBO(rpar, 7 17, &kp RPAR)
+        VCOMBO(colon, 8 18, &kp COLON)
+        VCOMBO(semicolon, 9 19, &kp SEMI)
 
-        COMBO(six, 90, 10 20, &kp N6)
-        COMBO(four, 90, 11 21, &kp N4)
-        COMBO(two, 90, 12 22, &kp N2)
-        COMBO(zero, 90, 13 23, &kp N0)
-        COMBO(eight, 90, 14 24, &kp N8)
-        COMBO(nine, 90, 15 25, &kp N9)
-        COMBO(one, 90, 16 26, &kp N1)
-        COMBO(three, 90, 17 27, &kp N3)
-        COMBO(five, 90, 18 28, &kp N5)
-        COMBO(seven, 90, 19 29, &kp N7)
+        VCOMBO(six, 10 20, &kp N6)
+        VCOMBO(four, 11 21, &kp N4)
+        VCOMBO(two, 12 22, &kp N2)
+        VCOMBO(zero, 13 23, &kp N0)
+        VCOMBO(eight, 14 24, &kp N8)
+        VCOMBO(nine, 15 25, &kp N9)
+        VCOMBO(one, 16 26, &kp N1)
+        VCOMBO(three, 17 27, &kp N3)
+        VCOMBO(five, 18 28, &kp N5)
+        VCOMBO(seven, 19 29, &kp N7)
 
-        COMBO(2shift, 50, 13 14, &double_shift)
-        COMBO(gam, 50, 9 29, &tog 3)
+        COMBO(2shift, 50, 13 14, &double_shift, 0, 0)
+        COMBO(gam, 50, 9 29, &tog 3, 0 3, 0)
     };
     
     keymap {
