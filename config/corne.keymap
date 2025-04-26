@@ -20,15 +20,6 @@
 
 #define VCOMBO(NAME, KEYPOS, BINDINGS) COMBO(NAME, 90, KEYPOS, BINDINGS, 0, 0)
 
-#define SLOW_COMBO(NAME, TERM, KEYPOS, BINDINGS, PRIORIDLE) \
-  combo_##NAME { \
-    timeout-ms = <TERM>; \
-    key-positions = <KEYPOS>; \
-    bindings = <BINDINGS>; \
-    layers = <0>; \
-    require-prior-idle-ms = <PRIORIDLE>; \
-  };
-
 #define LKEYS 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32
 #define RKEYS 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 35
 #define HOMEROWMOD(KEYS) \
@@ -125,6 +116,7 @@
         COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 0, 125)
         COMBO(enter, 50, 11 12 13, &kp ENTER, 0, 0)
         COMBO(caps, 50, 16 17 18, &kp CAPS, 0, 0)
+
         COMBO(tab, 30, 2 3, &kp TAB, 0, 125)
         COMBO(delete, 50, 10 11, &kp DEL, 0, 0)
         COMBO(escape, 60, 0 1 2, &kp ESC, 0, 125)
@@ -133,12 +125,12 @@
         COMBO(copy, 40, 11 12, &kp LC(C), 0, 125)
         COMBO(paste, 40, 12 13, &kp LC(V), 0, 125)
 
-        VCOMBO(pipe, 0 10, &kp GB_PIPE)
+        COMBO(q, 90, 0 10, &kp Q, 0 4, 0)
         VCOMBO(lbkt, 1 11, &kp LBKT)
         VCOMBO(rbkt, 2 12, &kp RBKT)
         VCOMBO(equal, 3 13, &kp EQUAL)
-        VCOMBO(q, 4 14, &kp Q)
-        VCOMBO(z, 5 15, &kp Z)
+        VCOMBO(pipe, 4 14, &kp GB_PIPE)
+        COMBO(z, 90, 5 15, &kp Z, 0 4, 0)
         VCOMBO(lpar, 6 16, &kp LPAR)
         VCOMBO(rpar, 7 17, &kp RPAR)
         VCOMBO(colon, 8 18, &kp COLON)
@@ -156,7 +148,8 @@
         VCOMBO(seven, 19 29, &kp N7)
 
         COMBO(2shift, 50, 13 14, &double_shift, 0, 0)
-        COMBO(gam, 50, 9 29, &tog 3, 0 3, 0)
+        COMBO(gam, 50, 9 29, &tog 4, 0 4, 0)
+        COMBO(genter, 50, 16 17 18, &kp ENTER, 4, 0)
     };
     
     keymap {
@@ -167,7 +160,7 @@
                 &kp B       &kp Y       &kp O        &kp U         &mminus        &kp J      &kp L         &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHIFT A &munder        &kp K      &hrs LSHIFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
                 &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &mslash        &kp X      &kp M         &kp G        &kp W       &kp V
-                                        &trans       &lt 4 Q       &kp SPACE      &lt 1 R    &lt 2 Z       &trans
+                                        &trans       &mo 3         &kp SPACE      &lt 1 R    &mo 2         &trans
             >;
         };
 
@@ -189,21 +182,21 @@
             >;
         };
 
-        GAM {
-            bindings = <
-                &kp B       &kp Y       &kp O        &kp U         &kp MINUS        &kp J      &kp L         &kp D        &kp P       &kp F
-                &kp C       &kp I       &kp E        &kp A         &kp QUESTION     &kp K      &kp H         &kp T        &kp N       &kp S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &kp FSLH         &kp X      &kp M         &kp G        &kp W       &kp V
-                                        &trans       &lt 4 Q       &kp SPACE        &kp R      &kp Z         &trans
-            >;
-        };
-
         FUN {
             bindings = <
                 &kp F9 &kp F10 &kp F11 &kp F12 &trans &trans &trans &trans &trans &bt BT_CLR
                 &kp F5 &kp F6  &kp F7  &kp F8  &trans &trans &trans &trans &trans &trans
                 &kp F1 &kp F2  &kp F3  &kp F4  &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        GAM {
+            bindings = <
+                &kp B       &kp Y       &kp O        &kp U         &kp MINUS        &kp J      &kp L         &kp D        &kp P       &kp F
+                &kp C       &kp I       &kp E        &kp A         &kp QUESTION     &kp K      &kp H         &kp T        &kp N       &kp S
+                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &kp FSLH         &kp X      &kp M         &kp G        &kp W       &kp V
+                                        &trans       &kp LCTRL     &kp SPACE        &kp R      &trans        &trans
             >;
         };
     };
