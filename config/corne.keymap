@@ -113,7 +113,7 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 0 4, 125)
+        COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 0, 125)
         COMBO(enter, 50, 11 12 13, &kp ENTER, 0, 0)
         COMBO(caps, 50, 16 17 18, &kp CAPS, 0, 0)
 
@@ -148,9 +148,10 @@
         VCOMBO(seven, 19 29, &kp N7)
 
         COMBO(2shift, 50, 13 14, &double_shift, 0, 0)
-        COMBO(gam, 50, 9 29, &tog 4, 0 4, 0)
+        COMBO(gam, 60, 26 27 28, &tog 4, 0 4, 0)
         COMBO(genter, 50, 16 17 18, &kp ENTER, 4, 0)
         COMBO(gescape, 60, 7 8 9, &kp ESC, 4, 125)
+        COMBO(gbackspace, 27, 16 17, &kp BACKSPACE, 4, 125)
     };
     
     keymap {
@@ -158,10 +159,10 @@
 
         default_layer {
             bindings = <
-                &kp B       &kp Y       &kp O        &kp U         &mminus        &kp J      &kp L         &kp D        &kp P       &kp F
-                &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHIFT A &munder        &kp K      &hrs LSHIFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &mslash        &kp X      &kp M         &kp G        &kp W       &kp V
-                                        &trans       &mo 3         &kp SPACE      &lt 1 R    &mo 2         &trans
+                &kp B       &kp Y       &kp O        &kp U        &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
+                &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHFT A &munder        &kp K      &hrs LSHFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
+                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA    &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
+                                        &trans       &mo 3        &kp SPACE      &lt 1 R    &mo 2        &trans
             >;
         };
 
@@ -197,7 +198,7 @@
                 &kp B       &kp Y       &kp O        &kp U         &kp MINUS        &kp J      &kp L         &kp D        &kp P       &kp F
                 &kp C       &kp I       &kp E        &kp A         &kp QUESTION     &kp K      &kp H         &kp T        &kp N       &kp S
                 &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &kp FSLH         &kp X      &kp M         &kp G        &kp W       &kp V
-                                        &trans       &kp LCTRL     &kp SPACE        &kp R      &trans        &trans
+                                        &kp LSHFT    &kp LCTRL     &kp SPACE        &kp R      &trans        &trans
             >;
         };
     };
