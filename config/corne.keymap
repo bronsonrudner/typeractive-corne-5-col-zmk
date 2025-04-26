@@ -125,7 +125,7 @@
         COMBO(copy, 40, 11 12, &kp LC(C), 0, 125)
         COMBO(paste, 40, 12 13, &kp LC(V), 0, 125)
 
-        COMBO(q, 90, 0 10, &kp Q, 0 4, 0)
+        VCOMBO(semicolon, 0 10, &kp SEMI)
         VCOMBO(lbkt, 1 11, &kp LBKT)
         VCOMBO(rbkt, 2 12, &kp RBKT)
         VCOMBO(equal, 3 13, &kp EQUAL)
@@ -134,7 +134,7 @@
         VCOMBO(lpar, 6 16, &kp LPAR)
         VCOMBO(rpar, 7 17, &kp RPAR)
         VCOMBO(colon, 8 18, &kp COLON)
-        VCOMBO(semicolon, 9 19, &kp SEMI)
+        COMBO(q, 90, 9 19, &kp Q, 0 4, 0)
 
         VCOMBO(six, 10 20, &kp N6)
         VCOMBO(four, 11 21, &kp N4)
