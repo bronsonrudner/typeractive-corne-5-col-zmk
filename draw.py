@@ -36,6 +36,7 @@ overrides = r"""
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
 &caps_word CAPS_WORD
+&num_word 1 NUM
 """
 
 combos_to_separate = ["enter", "cut", "escape", "gam", "caps"]
