@@ -110,6 +110,13 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        tdsh: tap_dance_shift {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LSHFT>, <&kp CAPS>;
+        };
     };
 
     macros {
@@ -132,16 +139,14 @@
         compatible = "zmk,combos";
 
         COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 0 LNUM, 125)
-        COMBO(enter, 50, 11 12 13, &kp ENTER, 0, 0)
-        COMBO(caps, 50, 16 17 18, &kp CAPS, 0, 0)
+        COMBO(enter, 50, 11 12 13, &kp ENTER, 0 LNUM, 0)
+        COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM, 125)
+        COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM, 0)
+        COMBO(escape, 60, 0 1 2, &kp ESC, 0 LNUM, 125)
 
-        COMBO(tab, 27, 2 3, &kp TAB, 0, 125)
-        COMBO(delete, 50, 10 11, &kp DEL, 0, 0)
-        COMBO(escape, 60, 0 1 2, &kp ESC, 0, 125)
-
-        COMBO(cut, 60, 10 11 12, &kp LC(X), 0, 125)
-        COMBO(copy, 40, 11 12, &kp LC(C), 0, 125)
-        COMBO(paste, 40, 12 13, &kp LC(V), 0, 125)
+        COMBO(cut, 60, 10 11 12, &kp LC(X), 0 LNUM, 125)
+        COMBO(copy, 35, 11 12, &kp LC(C), 0 LNUM, 125)
+        COMBO(paste, 27, 12 13, &kp LC(V), 0 LNUM, 125)
 
         VCOMBO(semicolon, 0 10, &kp SEMI)
         VCOMBO(lbkt, 1 11, &kp LBKT)
@@ -180,7 +185,7 @@
                 &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
                 &msqt       &mdqt       &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &mo LFUN     &num_word LNUM &kp SPACE      &lt LNAV R &sk LSHFT    &trans
+                                        &sl LFUN     &num_word LNUM &kp SPACE      &lt LNAV R &tdsh        &trans
             >;
         };
 
