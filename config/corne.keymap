@@ -38,6 +38,11 @@
     hold-trigger-key-positions = <KEYS>; \
     hold-trigger-on-release;
 
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+};
+
 / {
     chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;

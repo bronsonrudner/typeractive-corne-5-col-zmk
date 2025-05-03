@@ -19,10 +19,10 @@ overrides = r"""
 &kp POUND £
 &kp GB_TILDE ~
 &kp GB_PIPE |
-&kp LC(X) CUT
-&kp LC(C) COPY
-&kp LC(V) PASTE
-&kp LC(Z) UNDO
+&kp LC(X) Cut
+&kp LC(C) Copy
+&kp LC(V) Paste
+&kp LC(Z) Undo
 &double_shift ⇧⇧
 &kp LCTRL ✲
 &kp LALT ⎇
@@ -37,6 +37,7 @@ overrides = r"""
 &kp C_VOL_UP 🔊
 &caps_word CAPS_WORD
 &num_word 1 NUM
+&tdsh 'SHIFT'
 """
 
 combos_to_separate = ["enter", "cut", "escape", "gam", "caps"]
