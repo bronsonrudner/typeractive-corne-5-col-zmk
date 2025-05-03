@@ -143,7 +143,7 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 27, 16 17, &ln BACKSPACE LC(BACKSPACE), 0 LNUM, 125)
+        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LGAM, 125)
         COMBO(enter, 50, 11 12 13, &kp ENTER, 0 LNUM, 0)
         COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM, 125)
         COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM, 0)
@@ -179,7 +179,6 @@
         COMBO(gam, 60, 26 27 28, &tog LGAM, 0 LGAM, 0)
         COMBO(genter, 50, 16 17 18, &kp ENTER, LGAM, 0)
         COMBO(gescape, 60, 7 8 9, &kp ESC, LGAM, 125)
-        COMBO(gbackspace, 27, 16 17, &kp BACKSPACE, LGAM, 125)
     };
     
     keymap {
