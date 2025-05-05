@@ -10,7 +10,6 @@ OUTPUT = "corne.svg"
 # https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
 overrides = r"""
 &kp BACKSPACE ⌫
-&ln BACKSPACE LC(BACKSPACE) Ctl⌫
 &kp GB_DQT "
 &kp GB_HASH #
 &kp GB_BSLH \
