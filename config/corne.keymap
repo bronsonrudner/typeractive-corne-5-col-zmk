@@ -130,7 +130,7 @@
         compatible = "zmk,combos";
 
         COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM, 125)
-        COMBO(enter, 50, 11 12 13, &kp ENTER, 0 LNUM, 0)
+        COMBO(enter, 70, 11 12 13, &kp ENTER, 0 LNUM, 0)
         COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM, 125)
         COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM, 0)
         COMBO(escape, 60, 0 1 2, &kp ESC, 0 LNUM, 125)
@@ -178,9 +178,9 @@
 
         NUM {
             bindings = <
-                &kp F9 &kp F10 &kp F11 &kp F12 &trans     &trans &kp N7 &kp N8 &kp N9 &trans
-                &kp F5 &kp F6  &kp F7  &kp F8  &trans     &trans &kp N4 &kp N5 &kp N6 &kp N0
-                &kp F1 &kp F2  &kp F3  &kp F4  &trans     &trans &kp N1 &kp N2 &kp N3 &trans
+                &kp F9 &kp F10 &kp F11 &kp F12 &trans                            &trans &kp N7 &kp N8 &kp N9 &trans
+                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &trans     &trans &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
+                &kp F1 &kp F2  &kp F3  &kp F4  &trans                            &trans &kp N1 &kp N2 &kp N3 &trans
                                  &trans &trans &trans     &trans &trans &trans
             >;
         };
