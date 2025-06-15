@@ -11,6 +11,7 @@
 
 #define LNUM 1
 #define LNAV 2
+#define LSYM 3
 
 #define COMBO(NAME, TERM, KEYPOS, BINDINGS, LAYERS, PRIORIDLE) \
   combo_##NAME { \
@@ -116,6 +117,12 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LSHFT>, <&macro_tap &kp LSHFT>;
         };
+
+        spaces: spaces {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>;
+        };
     };
     
     /* Key positions
@@ -172,14 +179,14 @@
                 &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
                 &msqt       &mdqt       &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &trans       &trans         &lt LNUM SPACE &lt LNAV R &tdsh        &trans
+                                        &trans       &sl LSYM         &lt LNUM SPACE &lt LNAV R &tdsh        &trans
             >;
         };
 
         NUM {
             bindings = <
                 &kp F9 &kp F10 &kp F11 &kp F12 &trans                            &trans &kp N7 &kp N8 &kp N9 &trans
-                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &trans     &trans &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
+                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &spaces    &trans &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
                 &kp F1 &kp F2  &kp F3  &kp F4  &trans                            &trans &kp N1 &kp N2 &kp N3 &trans
                                  &trans &trans &trans     &trans &trans &trans
             >;
@@ -190,6 +197,15 @@
                 &trans &trans &trans &trans &trans &trans &kp HOME &kp PG_UP &kp PG_DN &kp END
                 &trans &trans &trans &trans &trans &kp INSERT &kp LEFT &kp UP &kp DOWN &kp RIGHT
                 &trans &trans &trans &trans &trans &trans &kp C_VOL_DN &trans &trans &kp C_VOL_UP
+                &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        SYM {
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &kp LBRC &kp RBRC &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans
             >;
         };
