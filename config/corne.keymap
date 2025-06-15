@@ -137,7 +137,7 @@
 
         COMBO(cut, 60, 10 11 12, &kp LC(X), 0 LNUM, 125)
         COMBO(copy, 35, 11 12, &kp LC(C), 0 LNUM, 125)
-        COMBO(paste, 27, 12 13, &kp LC(V), 0 LNUM, 125)
+        COMBO(paste, 27, 12 13, &hls LC(LSHFT) LC(V), 0 LNUM, 125)
 
         VCOMBO(semicolon, 0 10, &kp SEMI)
         VCOMBO(lbkt, 1 11, &kp LBKT)
