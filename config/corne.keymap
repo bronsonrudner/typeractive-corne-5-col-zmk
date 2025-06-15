@@ -13,7 +13,6 @@
 #define LNUM 1
 #define LNAV 2
 #define LFUN 3
-#define LGAM 4
 
 #define COMBO(NAME, TERM, KEYPOS, BINDINGS, LAYERS, PRIORIDLE) \
   combo_##NAME { \
@@ -143,7 +142,7 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LGAM, 125)
+        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM, 125)
         COMBO(enter, 50, 11 12 13, &kp ENTER, 0 LNUM, 0)
         COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM, 125)
         COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM, 0)
@@ -158,11 +157,11 @@
         VCOMBO(rbkt, 2 12, &kp RBKT)
         VCOMBO(equal, 3 13, &kp EQUAL)
         VCOMBO(pipe, 4 14, &kp GB_PIPE)
-        COMBO(z, 90, 5 15, &kp Z, 0 LNUM LGAM, 0)
+        COMBO(z, 90, 5 15, &kp Z, 0 LNUM, 0)
         VCOMBO(lpar, 6 16, &kp LPAR)
         VCOMBO(rpar, 7 17, &kp RPAR)
         VCOMBO(colon, 8 18, &kp COLON)
-        COMBO(q, 90, 9 19, &kp Q, 0 LNUM LGAM, 0)
+        COMBO(q, 90, 9 19, &kp Q, 0 LNUM, 0)
 
         VCOMBO(excl, 10 20, &kp EXCL)
         VCOMBO(at, 11 21, &kp GB_AT)
@@ -176,9 +175,6 @@
         VCOMBO(gt, 19 29, &kp GT)
 
         COMBO(2shift, 50, 13 14, &double_shift, 0, 0)
-        COMBO(gam, 60, 26 27 28, &tog LGAM, 0 LGAM, 0)
-        COMBO(genter, 50, 16 17 18, &kp ENTER, LGAM, 0)
-        COMBO(gescape, 60, 7 8 9, &kp ESC, LGAM, 125)
     };
     
     keymap {
@@ -189,7 +185,7 @@
                 &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
                 &msqt       &mdqt       &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &sl LFUN     &num_word LNUM &kp SPACE      &lt LNAV R &tdsh        &trans
+                                        &trans       &num_word LNUM &lt LFUN SPACE &lt LNAV R &tdsh        &trans
             >;
         };
 
@@ -217,15 +213,6 @@
                 &kp F5 &kp F6  &kp F7  &kp F8  &trans &trans &trans &trans &trans &trans
                 &kp F1 &kp F2  &kp F3  &kp F4  &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans
-            >;
-        };
-
-        GAM {
-            bindings = <
-                &kp B       &kp Y       &kp O        &kp U         &kp MINUS        &kp J      &kp L         &kp D        &kp P       &kp F
-                &kp C       &kp I       &kp E        &kp A         &kp QUESTION     &kp K      &kp H         &kp T        &kp N       &kp S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA     &kp FSLH         &kp X      &kp M         &kp G        &kp W       &kp V
-                                        &kp LSHFT    &kp LCTRL     &kp SPACE        &kp R      &trans        &trans
             >;
         };
     };
