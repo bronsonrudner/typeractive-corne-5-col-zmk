@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
-#include <behaviors/num_word.dtsi> // https://github.com/urob/zmk-auto-layer
 
 #define LNUM 1
 #define LNAV 2
@@ -185,16 +184,16 @@
                 &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hlc LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrc LCTRL T &hrm LWIN N &hrm LALT S
                 &msqt       &mdqt       &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &trans       &num_word LNUM &lt LFUN SPACE &lt LNAV R &tdsh        &trans
+                                        &trans       &mo LFUN       &lt LNUM SPACE &lt LNAV R &tdsh        &trans
             >;
         };
 
         NUM {
             bindings = <
-                &trans &trans &trans &trans &trans     &trans &kp N7 &kp N8 &kp N9 &trans
-                &trans &trans &trans &trans &trans     &trans &kp N4 &kp N5 &kp N6 &kp N0
-                &trans &trans &trans &trans &trans     &trans &kp N1 &kp N2 &kp N3 &trans
-                              &trans &trans &trans     &trans &trans &trans
+                &kp F9 &kp F10 &kp F11 &kp F12 &trans     &trans &kp N7 &kp N8 &kp N9 &trans
+                &kp F5 &kp F6  &kp F7  &kp F8  &trans     &trans &kp N4 &kp N5 &kp N6 &kp N0
+                &kp F1 &kp F2  &kp F3  &kp F4  &trans     &trans &kp N1 &kp N2 &kp N3 &trans
+                                 &trans &trans &trans     &trans &trans &trans
             >;
         };
 
