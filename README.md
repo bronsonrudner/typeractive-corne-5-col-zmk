@@ -48,6 +48,7 @@ west build -s app -d build/left -b nice_nano_v2 -S studio-rpc-usb-uart -- -DZMK_
 To update the visual
 
 ```bash
+apt update
 apt install pipx
 pipx install keymap-drawer
 python3 -m pipx ensurepath
