@@ -11,7 +11,7 @@
 
 #define LNUM 1
 #define LNAV 2
-#define LSYM 3
+#define LCAP 3
 
 #define COMBO(NAME, TERM, KEYPOS, BINDINGS, LAYERS, PRIORIDLE) \
   combo_##NAME { \
@@ -138,9 +138,13 @@
 
         COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM, 125)
         COMBO(enter, 70, 11 12 13, &kp ENTER, 0 LNUM, 0)
+        COMBO(r_enter, 70, 16 17 18, &kp ENTER, 0 LNUM, 0)
         COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM, 125)
         COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM, 0)
         COMBO(escape, 60, 0 1 2, &kp ESC, 0 LNUM, 125)
+
+        COMBO(lbrc, 25, 6 7, &kp LBRC, 0, 125)
+        COMBO(rbrc, 25, 7 8, &kp RBRC, 0, 125)
 
         COMBO(cut, 60, 10 11 12, &kp LC(X), 0 LNUM, 125)
         COMBO(copy, 35, 11 12, &kp LC(C), 0 LNUM, 125)
@@ -152,10 +156,12 @@
         VCOMBO(equal, 3 13, &kp EQUAL)
         VCOMBO(pipe, 4 14, &kp GB_PIPE)
         COMBO(z, 90, 5 15, &kp Z, 0 LNUM, 0)
+        COMBO(sz, 90, 5 15, &kp LS(Z), LCAP, 0)
         VCOMBO(lpar, 6 16, &kp LPAR)
         VCOMBO(rpar, 7 17, &kp RPAR)
         VCOMBO(colon, 8 18, &kp COLON)
         COMBO(q, 90, 9 19, &kp Q, 0 LNUM, 0)
+        COMBO(sq, 90, 9 19, &kp LS(Q), LCAP, 0)
 
         VCOMBO(excl, 10 20, &kp EXCL)
         VCOMBO(at, 11 21, &kp GB_AT)
@@ -179,7 +185,7 @@
                 &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
                 &msqt       &mdqt       &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &trans       &sl LSYM       &lt LNUM SPACE &lt LNAV R &tdsh        &trans
+                                        &trans       &sl LCAP       &lt LNUM SPACE &lt LNAV R &tdsh        &trans
             >;
         };
 
@@ -188,7 +194,7 @@
                 &kp F9 &kp F10 &kp F11 &kp F12 &trans                            &trans &kp N7 &kp N8 &kp N9 &trans
                 &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &spaces    &trans &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
                 &kp F1 &kp F2  &kp F3  &kp F4  &trans                            &trans &kp N1 &kp N2 &kp N3 &trans
-                                 &trans &trans &trans     &trans &trans &trans
+                                 &trans &trans &trans     &kp SPACE &trans &trans
             >;
         };
 
@@ -201,12 +207,12 @@
             >;
         };
 
-        SYM {
+        CAP {
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &kp LBRC &kp RBRC &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
+                &kp LS(B) &kp LS(Y) &kp LS(O) &kp LS(U) &trans        &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
+                &kp LS(C) &kp LS(I) &kp LS(E) &kp LS(A) &trans        &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
+                &trans     &trans   &trans    &trans    &trans        &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
+                                    &trans    &trans    &trans        &trans     &trans    &trans
             >;
         };
     };

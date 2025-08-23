@@ -20,7 +20,7 @@ overrides = r"""
 &kp GB_PIPE |
 &kp LC(X) Cut
 &kp LC(C) Copy
-&kp LC(V) Paste
+&hls LC(LSHFT) LC(V) Paste
 &kp LC(Z) Undo
 &double_shift ⇧⇧
 &kp LCTRL ✲
@@ -36,10 +36,10 @@ overrides = r"""
 &kp C_VOL_UP 🔊
 &caps_word CAPS_WORD
 &num_word 1 NUM
-&tdsh 'SHIFT'
+&tdsh Shift
 """
 
-combos_to_separate = ["enter", "cut", "escape", "gam", "caps"]
+combos_to_separate = ["enter", "r_enter", "cut", "escape", "gam", "caps"]
 
 overrides = dict(
     raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()),
