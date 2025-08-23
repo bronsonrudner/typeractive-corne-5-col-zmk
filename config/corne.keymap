@@ -22,7 +22,7 @@
     require-prior-idle-ms = <PRIORIDLE>; \
   };
 
-#define VCOMBO(NAME, KEYPOS, BINDINGS) COMBO(NAME, 90, KEYPOS, BINDINGS, 0 LNUM, 0)
+#define VCOMBO(NAME, KEYPOS, BINDINGS) COMBO(NAME, 90, KEYPOS, BINDINGS, 0 LNUM LCAP, 0)
 
 #define LKEYS 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32
 #define RKEYS 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 35
@@ -102,13 +102,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-
-        tdsh: tap_dance_shift {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk LSHFT>, <&kp CAPS>;
-        };
     };
 
     macros {
@@ -136,15 +129,15 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM, 125)
-        COMBO(enter, 70, 11 12 13, &kp ENTER, 0 LNUM, 0)
-        COMBO(r_enter, 70, 16 17 18, &kp ENTER, 0 LNUM, 0)
-        COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM, 125)
-        COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM, 0)
-        COMBO(escape, 60, 0 1 2, &kp ESC, 0 LNUM, 125)
+        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LCAP, 125)
+        COMBO(enter, 70, 11 12 13, &kp ENTER, 0 LNUM LCAP, 0)
+        COMBO(r_enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
+        COMBO(tab, 25, 2 3, &kp TAB, 0 LNUM LCAP, 125)
+        COMBO(delete, 50, 10 11, &kp DEL, 0 LNUM LCAP, 0)
+        COMBO(escape, 60, 0 1 2, &kp ESC, 0 LNUM LCAP, 125)
 
-        COMBO(lbrc, 25, 6 7, &kp LBRC, 0, 125)
-        COMBO(rbrc, 25, 7 8, &kp RBRC, 0, 125)
+        COMBO(lbrc, 25, 6 7, &kp LBRC, 0 LNUM LCAP, 125)
+        COMBO(rbrc, 25, 7 8, &kp RBRC, 0 LNUM LCAP, 125)
 
         COMBO(cut, 60, 10 11 12, &kp LC(X), 0 LNUM, 125)
         COMBO(copy, 35, 11 12, &kp LC(C), 0 LNUM, 125)
