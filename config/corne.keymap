@@ -185,7 +185,7 @@
                 &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
                 &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
                 &msqt       &mdqt       &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &trans       &sl LCAP       &lt LNUM SPACE &lt LNAV R &tdsh        &trans
+                                        &trans       &sl LCAP       &lt LNUM SPACE &lt LNAV R &sk LSHFT    &trans
             >;
         };
 
