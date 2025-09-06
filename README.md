@@ -40,9 +40,7 @@ and then `Add Folder to Workspace...`.
 To test the build, run
 
 ```bash
-cd /workspaces/zmk
-rm -r build
-west build -s app -d build/left -b nice_nano_v2 -S studio-rpc-usb-uart -- -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=corne_left
+(cd /workspaces/zmk && rm -rf build && west build -s app -d build/left -b nice_nano_v2 -S studio-rpc-usb-uart -- -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD=corne_left)
 ```
 
 To update the visual
