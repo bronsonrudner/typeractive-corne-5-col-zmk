@@ -66,25 +66,6 @@
             HOMEROWMOD(LKEYS)
         };
 
-        mslash: morph_slash {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp FSLH>, <&kp GB_BSLH>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        munder: morph_underscore {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp UNDERSCORE>, <&kp QUESTION>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mminus: morph_minus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp PLUS>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         ln: linger {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -172,9 +153,9 @@
 
         default_layer {
             bindings = <
-                &kp B       &kp Y       &kp O        &kp U          &mminus        &kp J      &kp L        &kp D        &kp P       &kp F
-                &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A   &munder        &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA      &mslash        &kp X      &kp M        &kp G        &kp W       &kp V
+                &kp B       &kp Y       &kp O        &kp U          &kp MINUS      &kp J      &kp L        &kp D        &kp P       &kp F
+                &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A   &kp UNDERSCORE &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
+                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA      &kp FSLH       &kp X      &kp M        &kp G        &kp W       &kp V
                                         &trans       &mo LCAP       &lt LNUM SPACE &lt LNAV R &sl LTAP     &trans
             >;
         };
@@ -210,7 +191,7 @@
             bindings = <
                 &kp LS(B)    &kp LS(Y) &kp LS(O) &kp LS(U) &trans        &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
                 &kp LS(C)    &kp LS(I) &kp LS(E) &kp LS(A) &kp QUESTION  &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
-                &kp GB_TILDE &kp GRAVE &trans    &trans    &trans        &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
+                &kp GB_TILDE &kp GRAVE &trans    &trans    &kp GB_BSLH   &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
                                        &trans    &trans    &spaces       &kp LS(R)  &trans    &trans
             >;
         };
