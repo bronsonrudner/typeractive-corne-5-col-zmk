@@ -107,6 +107,12 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>;
         };
+
+        brcs: brcs {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LBRC>, <&macro_tap &kp RBRC>;
+        };
     };
     
     /* Key positions
@@ -142,13 +148,10 @@
         VCOMBO(rbkt, 2 12, &kp RBKT, &kp RBRC)
         VCOMBO(equal, 3 13, &kp EQUAL, &kp PLUS)
         VCOMBO(pipe, 4 14, &kp GB_PIPE, &kp GB_PIPE)
-        COMBO(z, 90, 5 15, &kp Z, 0 LNUM, 0)
-        COMBO(sz, 90, 5 15, &kp LS(Z), LCAP LTAP, 0)
+        COMBO(brcs, 90, 1 11 2 12, &brcs, LTAP, 0)
         VCOMBO(lpar, 6 16, &kp LPAR, &kp LT)
         VCOMBO(rpar, 7 17, &kp RPAR, &kp GT)
         VCOMBO(colon, 8 18, &kp COLON, &kp COLON)
-        COMBO(q, 90, 9 19, &kp Q, 0 LNUM, 0)
-        COMBO(sq, 90, 9 19, &kp LS(Q), LCAP LTAP, 0)
 
         VCOMBO(excl, 10 20, &kp EXCL, &kp EXCL)
         VCOMBO(at, 11 21, &kp GB_AT, &kp GB_AT)

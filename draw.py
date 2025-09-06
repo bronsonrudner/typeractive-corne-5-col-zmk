@@ -39,7 +39,7 @@ overrides = r"""
 &tdsh Shift
 """
 
-combos_to_separate = ["enter", "r_enter", "cut", "escape", "caps"]
+combos_to_separate = ["enter", "r_enter", "cut", "escape", "caps", "brcs"]
 
 overrides = dict(
     raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()),
