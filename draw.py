@@ -1,5 +1,6 @@
 #!/bin/python3
 """Updates the keymap diagram, using https://github.com/caksoylar/keymap-drawer"""
+
 import json
 import os
 import string
@@ -41,13 +42,13 @@ overrides = r"""
 &hls LC(LSHFT) TAB Tab
 &spaces ⎵⎵⎵⎵
 """
-raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines())
+raw_binding_map = dict(
+    line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()
+)
 for char in string.ascii_uppercase:
     raw_binding_map[f"&kp {char}"] = char.lower()
     raw_binding_map[f"&kp LS({char})"] = char
 
-# combos_to_separate = ["enter", "r_enter", "cut", "caps"]
-# combos = {f"combo_{combo}": {"draw_separate": "True"} for combo in combos_to_separate}
 combos = {
     "combo_brcs": {"hidden": True},
     "combo_cut": {"align": "top"},
@@ -62,15 +63,45 @@ overrides = dict(
 env = os.environ | {f"KEYMAP_{k}": json.dumps(v) for k, v in overrides.items()}
 
 repo = Path(__file__).parent
-with tempfile.NamedTemporaryFile(mode="w+") as f:
-    config = check_output(["keymap", "parse", "-z", repo / "config/corne.keymap", "--virtual-layers", "combos"], env=env, text=True)
-    data = yaml.safe_load(config)
-    for combo in data["combos"]:
-        if "default" in combo["l"]:
-            combo["l"] = ["combos"]
-        elif any(combo["k"] == other_combo["k"] for other_combo in data["combos"] if other_combo != combo):
+raw_config = check_output(
+    [
+        "keymap",
+        "parse",
+        "-z",
+        repo / "config/corne.keymap",
+        "--virtual-layers",
+        "combos",
+    ],
+    env=env,
+    text=True,
+)
+config = yaml.safe_load(raw_config)
+# Don't repeat any default combos in other layers
+for combo in config["combos"]:
+    if "default" not in combo["l"]:
+        if any(
+            combo["k"] == other_combo["k"]
+            for other_combo in config["combos"]
+            if "default" in other_combo["l"]
+        ):
             combo["hidden"] = True
-    new_config = yaml.dump(data, sort_keys=False)
-    f.write(new_config)
+# Don't show the CAP layer at all
+for combo in config["combos"]:
+    if "CAP" in combo["l"]:
+        combo["l"].remove("CAP")
+    if "default" in combo["l"]:
+        combo["l"] = ["combos"]
+del config["layers"]["CAP"]
+# Show combos second
+config["layers"] = {
+    "default": config["layers"]["default"],
+    "combos": config["layers"]["combos"],
+    **{name: layer for name, layer in config["layers"].items()},
+}
+
+with tempfile.NamedTemporaryFile(mode="w+") as f:
+    f.write(yaml.dump(config, sort_keys=False))
     f.flush()
-    repo.joinpath(OUTPUT).write_text(check_output(["keymap", "draw", f.name], env=env, text=True))
+    repo.joinpath(OUTPUT).write_text(
+        check_output(["keymap", "draw", f.name], env=env, text=True)
+    )

@@ -9,10 +9,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 
-#define LNUM 1
-#define LNAV 2
-#define LCAP 3
-#define LTAP 4
+#define LTAP 1
+#define LNUM 2
+#define LNAV 3
+#define LCAP 4
 
 #define COMBO(NAME, TERM, KEYPOS, BINDINGS, LAYERS, PRIORIDLE) \
   combo_##NAME { \
@@ -156,6 +156,15 @@
             >;
         };
 
+        TAP {
+            bindings = <
+                &kp LS(B)    &kp LS(Y) &kp LS(O)   &kp LS(U)   &kp GB_AT     &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
+                &kp LS(C)    &kp LS(I) &kp LS(E)   &kp LS(A)   &kp QUESTION  &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
+                &kp GB_TILDE &kp GRAVE &kp GB_HASH &kp DLLR    &kp GB_BSLH   &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
+                                       &trans      &trans      &spaces       &kp LS(R)  &kp ESC   &trans
+            >;
+        };
+
         NUM {
             bindings = <
                 &kp F9 &kp F10 &kp F11 &kp F12 &trans                            &trans &kp N7 &kp N8 &kp N9 &trans
@@ -180,15 +189,6 @@
                 &kp LS(C) &kp LS(I) &kp LS(E) &kp LS(A) &trans        &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
                 &trans     &trans   &trans    &trans    &trans        &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
                                     &trans    &trans    &trans        &kp LS(R)  &trans    &trans
-            >;
-        };
-
-        TAP {
-            bindings = <
-                &kp LS(B)    &kp LS(Y) &kp LS(O)   &kp LS(U)   &kp GB_AT     &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
-                &kp LS(C)    &kp LS(I) &kp LS(E)   &kp LS(A)   &kp QUESTION  &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
-                &kp GB_TILDE &kp GRAVE &kp GB_HASH &kp DLLR    &kp GB_BSLH   &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                       &trans      &trans      &spaces       &kp LS(R)  &kp ESC   &trans
             >;
         };
     };
