@@ -108,7 +108,7 @@
         compatible = "zmk,combos";
 
         COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LCAP, 125)
-        COMBO(r_enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
+        COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
         COMBO(tab, 25, 12 13, &hls LC(LSHFT) TAB, 0 LNUM LCAP, 125)
         COMBO(s_tab, 25, 12 13, &kp LS(TAB), LTAP, 125)
         COMBO(del, 25, 22 23, &kp DEL, 0 LNUM LCAP, 125)
