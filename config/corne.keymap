@@ -108,19 +108,20 @@
         compatible = "zmk,combos";
 
         COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LCAP, 125)
-        COMBO(enter, 70, 11 12 13, &kp ENTER, 0 LNUM LCAP, 0)
         COMBO(r_enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
-        COMBO(del, 25, 2 3, &kp DEL, 0 LNUM LCAP, 125)
-        COMBO(c_del, 25, 2 3, &kp LC(DEL), LTAP, 125)
+        COMBO(tab, 25, 12 13, &kp TAB, 0 LNUM LCAP, 125)
+        COMBO(s_tab, 25, 12 13, &kp LS(TAB), LTAP, 125)
+        COMBO(del, 25, 22 23, &kp DEL, 0 LNUM LCAP, 125)
+        COMBO(c_del, 25, 22 23, &kp LC(DEL), LTAP, 125)
 
-        COMBO(q2, 25, 6 7, &kp Q, 0 LNUM, 125)
-        COMBO(sq2, 25, 6 7, &kp LS(Q), LCAP LTAP, 125)
-        COMBO(z2, 25, 7 8, &kp Z, 0 LNUM, 125)
-        COMBO(sz2, 25, 7 8, &kp LS(Z), LCAP LTAP, 125)
+        COMBO(q, 25, 6 7, &kp Q, 0 LNUM, 125)
+        COMBO(s_q, 25, 6 7, &kp LS(Q), LCAP LTAP, 125)
+        COMBO(z, 25, 26 27, &kp Z, 0 LNUM, 125)
+        COMBO(s_z, 25, 26 27, &kp LS(Z), LCAP LTAP, 125)
 
-        COMBO(cut, 60, 10 11 12, &kp LC(X), 0 LNUM, 125)
-        COMBO(copy, 35, 11 12, &kp LC(C), 0 LNUM, 125)
-        COMBO(paste, 27, 12 13, &hls LC(LSHFT) LC(V), 0 LNUM, 125)
+        COMBO(cut, 60, 1 2 3, &kp LC(X), 0, 125)
+        COMBO(copy, 35, 1 2, &kp LC(C), 0, 125)
+        COMBO(paste, 27, 2 3, &hls LC(LSHFT) LC(V), 0, 125)
 
         VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBKT)
         VCOMBO(rbkt, 2 12, &kp RBKT, &kp EXCL)
@@ -148,10 +149,10 @@
 
         default_layer {
             bindings = <
-                &kp B       &kp Y       &kp O        &kp U          &kp MINUS      &kp J      &kp L        &kp D        &kp P       &kp F
-                &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A   &kp UNDERSCORE &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA      &kp FSLH       &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &trans       &lt LCAP TAB   &lt LNUM SPACE &lt LNAV R &sl LTAP     &trans
+                &kp B       &kp Y       &kp O        &kp U            &kp MINUS      &kp J      &kp L        &kp D        &kp P       &kp F
+                &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A     &kp UNDERSCORE &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
+                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA        &kp FSLH       &kp X      &kp M        &kp G        &kp W       &kp V
+                                        &trans       &lt LCAP ENTER   &lt LNUM SPACE &lt LNAV R &sl LTAP     &trans
             >;
         };
 
@@ -187,7 +188,7 @@
                 &kp LS(B)    &kp LS(Y) &kp LS(O)   &kp LS(U)   &kp GB_AT     &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
                 &kp LS(C)    &kp LS(I) &kp LS(E)   &kp LS(A)   &kp QUESTION  &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
                 &kp GB_TILDE &kp GRAVE &kp GB_HASH &kp DLLR    &kp GB_BSLH   &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                       &trans      &kp LS(TAB) &spaces       &kp LS(R)  &kp ESC   &trans
+                                       &trans      &trans      &spaces       &kp LS(R)  &kp ESC   &trans
             >;
         };
     };
