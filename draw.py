@@ -2,9 +2,10 @@
 """Updates the keymap diagram, using https://github.com/caksoylar/keymap-drawer"""
 import json
 import os
+import string
+import tempfile
 from pathlib import Path
 from subprocess import check_output
-import tempfile
 
 OUTPUT = "corne.svg"
 # https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
@@ -34,16 +35,22 @@ overrides = r"""
 &kp SPACE ␣
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
-&caps_word CAPS_WORD
-&num_word 1 NUM
 &tdsh Shift
+&kp LS(TAB) ⇧Tab
+&spaces ⎵⎵⎵⎵
 """
+raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines())
+for char in string.ascii_uppercase:
+    raw_binding_map[f"&kp {char}"] = char.lower()
+    raw_binding_map[f"&kp LS({char})"] = char
 
-combos_to_separate = ["enter", "r_enter", "cut", "escape", "caps", "brcs"]
+combos_to_separate = ["enter", "r_enter", "cut", "caps"]
+combos = {f"combo_{combo}": {"draw_separate": "True"} for combo in combos_to_separate}
+combos["combo_brcs"] = {"hidden": True}
 
 overrides = dict(
-    raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()),
-    zmk_combos={f"combo_{combo}": {"draw_separate": "True"} for combo in combos_to_separate},
+    raw_binding_map=raw_binding_map,
+    zmk_combos=combos,
 )
 
 env = os.environ | {f"KEYMAP_{k}": json.dumps(v) for k, v in overrides.items()}
