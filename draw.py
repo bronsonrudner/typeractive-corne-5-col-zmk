@@ -21,7 +21,7 @@ overrides = r"""
 &kp GB_PIPE |
 &kp LC(X) Cut
 &kp LC(C) Copy
-&hls LC(LSHFT) LC(V) Paste
+&kp LC(V) Paste
 &kp LC(Z) Undo
 &double_shift ⇧⇧
 &kp LCTRL ✲
@@ -37,6 +37,7 @@ overrides = r"""
 &kp C_VOL_UP 🔊
 &tdsh Shift
 &kp LS(TAB) ⇧Tab
+&hls LC(LSHFT) TAB Tab
 &spaces ⎵⎵⎵⎵
 """
 raw_binding_map=dict(line.rsplit(maxsplit=1) for line in overrides.strip().splitlines())
