@@ -122,13 +122,13 @@
         COMBO(copy, 35, 11 12, &kp LC(C), 0 LNUM, 125)
         COMBO(paste, 27, 12 13, &hls LC(LSHFT) LC(V), 0 LNUM, 125)
 
-        VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBRC)
-        VCOMBO(rbkt, 2 12, &kp RBKT, &kp RBRC)
+        VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBKT)
+        VCOMBO(rbkt, 2 12, &kp RBKT, &kp EXCL)
         VCOMBO(equal, 3 13, &kp EQUAL, &kp PLUS)
         VCOMBO(pipe, 4 14, &kp GB_PIPE, &kp GB_PIPE)
         VCOMBO(ampersand, 5 15, &kp AMPS, &kp AMPS)
-        VCOMBO(lpar, 6 16, &kp LPAR, &kp LT)
-        VCOMBO(rpar, 7 17, &kp RPAR, &kp GT)
+        VCOMBO(lpar, 6 16, &kp LPAR, &kp LPAR)
+        VCOMBO(rpar, 7 17, &kp RPAR, &kp RPAR)
         VCOMBO(colon, 8 18, &kp COLON, &kp COLON)
 
         VCOMBO(star, 11 21, &kp STAR, &kp STAR)
