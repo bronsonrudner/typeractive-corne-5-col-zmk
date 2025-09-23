@@ -23,10 +23,10 @@ overrides = r"""
 &kp POUND £
 &kp GB_TILDE ~
 &kp GB_PIPE |
-&kp LC(X) Cut
-&kp LC(C) Copy
-&kp LC(V) Paste
-&kp LC(Z) Undo
+&kp LC(X) cut
+&kp LC(C) copy
+&kp LC(V) paste
+&kp LC(Z) undo
 &double_shift ⇧⇧
 &kp LCTRL ctrl
 &kp LALT alt
@@ -39,10 +39,12 @@ overrides = r"""
 &kp SPACE ␣
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
-&kp LS(TAB) ⇧Tab
-&hls LC(LSHFT) TAB Tab
+&kp LS(TAB) ⇧tab
+&hls LC(LSHFT) TAB tab
 &spaces ⎵⎵⎵⎵
-&kp LC(DEL) ^Del
+&kp ENTER ⏎
+&kp DEL del
+&kp LC(DEL) ^del
 &kp LC(LEFT) ^🡄
 &kp LC(RIGHT) ^🡆
 """

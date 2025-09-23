@@ -110,15 +110,16 @@
         COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LCAP, 125)
         COMBO(c_backspace, 30, 16 17, &kp LC(BACKSPACE), LTAP, 125)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
+        COMBO(win, 25, 11 12, &kp LWIN, 0, 125)
         COMBO(tab, 25, 12 13, &hls LC(LSHFT) TAB, 0 LNUM LCAP, 125)
         COMBO(s_tab, 25, 12 13, &kp LS(TAB), LTAP, 125)
         COMBO(del, 25, 2 3, &kp DEL, 0 LNUM LCAP, 125)
         COMBO(c_del, 25, 2 3, &kp LC(DEL), LTAP, 125)
 
-        COMBO(q, 25, 6 7, &kp Q, 0 LNUM, 125)
-        COMBO(s_q, 25, 6 7, &kp LS(Q), LCAP LTAP, 125)
-        COMBO(z, 25, 26 27, &kp Z, 0 LNUM, 125)
-        COMBO(s_z, 25, 26 27, &kp LS(Z), LCAP LTAP, 125)
+        COMBO(q, 25, 6 7, &kp Q, 0 LNUM, 0)
+        COMBO(s_q, 25, 6 7, &kp LS(Q), LCAP LTAP, 0)
+        COMBO(z, 25, 26 27, &kp Z, 0 LNUM, 0)
+        COMBO(s_z, 25, 26 27, &kp LS(Z), LCAP LTAP, 0)
 
         COMBO(cut, 60, 21 22 23, &kp LC(X), 0, 125)
         COMBO(copy, 35, 21 22, &kp LC(C), 0, 125)
@@ -175,7 +176,7 @@
         NUM {
             bindings = <
                 &kp F9 &kp F10 &kp F11 &kp F12 &trans                            &trans &kp N7 &kp N8 &kp N9 &trans
-                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &trans     &trans &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
+                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &trans     &kp DOT &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
                 &kp F1 &kp F2  &kp F3  &kp F4  &trans                            &trans &kp N1 &kp N2 &kp N3 &trans
                                  &trans &trans &trans                            &kp SPACE &trans &trans
             >;
@@ -192,10 +193,10 @@
 
         CAP {
             bindings = <
-                &kp LS(B) &kp LS(Y) &kp LS(O) &kp LS(U) &trans        &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
-                &kp LS(C) &kp LS(I) &kp LS(E) &kp LS(A) &trans        &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
-                &trans     &trans   &trans    &trans    &trans        &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                    &trans    &trans    &trans        &kp LS(R)  &trans    &trans
+                &kp LS(B) &kp LS(Y) &kp LS(O) &kp LS(U) &trans                                  &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
+                &hlm LALT LS(C) &hlm LWIN LS(I) &hls LCTRL LS(E) &hls LSHFT LS(A) &trans        &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
+                &trans     &trans   &trans    &trans    &trans                                  &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
+                                    &trans    &trans    &trans                                  &kp LS(R)  &trans    &trans
             >;
         };
     };
