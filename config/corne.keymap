@@ -33,7 +33,7 @@
     compatible = "zmk,behavior-hold-tap"; \
     #binding-cells = <2>; \
     tapping-term-ms = <280>; \
-    quick-tap-ms = <0>; \
+    quick-tap-ms = <180>; \
     flavor = "balanced"; \
     bindings = <&kp>, <&kp>; \
     hold-trigger-key-positions = <KEYS>; \
@@ -107,8 +107,9 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &kp BACKSPACE, 0 LNUM LCAP, 125)
+        COMBO(backspace, 30, 16 17, &hrs LC(LSHFT) BACKSPACE, 0 LNUM LCAP, 125)
         COMBO(c_backspace, 30, 16 17, &kp LC(BACKSPACE), LTAP, 125)
+        COMBO(esc, 70, 11 12 13, &hlm LWIN(LC(LSHFT)) ESC, 0 LNUM LCAP, 0)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
         COMBO(win, 25, 11 12, &kp LWIN, 0, 125)
         COMBO(tab, 25, 12 13, &hls LC(LSHFT) TAB, 0 LNUM LCAP, 125)
@@ -136,17 +137,15 @@
         VCOMBO(equal, 3 13, &kp EQUAL, &kp PLUS)
         VCOMBO(pipe, 4 14, &kp GB_PIPE, &kp GB_PIPE)
         VCOMBO(ampersand, 5 15, &kp AMPS, &kp AMPS)
-        VCOMBO(lpar, 6 16, &kp LPAR, &kp LPAR)
-        VCOMBO(rpar, 7 17, &kp RPAR, &kp RPAR)
+        VCOMBO(lpar, 6 16, &kp LPAR, &kp LT)
+        VCOMBO(rpar, 7 17, &kp RPAR, &kp GT)
         VCOMBO(colon, 8 18, &kp COLON, &kp COLON)
 
         VCOMBO(star, 11 21, &kp STAR, &kp STAR)
-        VCOMBO(lbrc, 12 22, &kp LBRC, &kp LBRC)
-        VCOMBO(rbrc, 13 23, &kp RBRC, &kp RBRC)
         VCOMBO(percent, 14 24, &kp PRCNT, &kp PRCNT)
         VCOMBO(caret, 15 25, &kp CARET, &kp CARET)
-        VCOMBO(lt, 16 26, &kp LT, &kp LT)
-        VCOMBO(gt, 17 27, &kp GT, &kp GT)
+        VCOMBO(lbrc, 16 26, &kp LBRC, &kp LBRC)
+        VCOMBO(rbrc, 17 27, &kp RBRC, &kp RBRC)
         VCOMBO(semi, 18 28, &kp SEMI, &kp SEMI)
 
         COMBO(2shift, 50, 13 14, &double_shift, 0, 0)
@@ -169,16 +168,16 @@
                 &kp LS(B)    &kp LS(Y) &kp LS(O)   &kp LS(U)   &kp GB_AT     &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
                 &kp LS(C)    &kp LS(I) &kp LS(E)   &kp LS(A)   &kp QUESTION  &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
                 &kp GB_TILDE &kp GRAVE &kp GB_HASH &kp DLLR    &kp GB_BSLH   &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                       &trans      &trans      &spaces       &kp LS(R)  &kp ESC   &trans
+                                       &trans      &trans      &trans        &kp LS(R)  &kp ESC   &trans
             >;
         };
 
         NUM {
             bindings = <
-                &kp F9 &kp F10 &kp F11 &kp F12 &trans                            &trans &kp N7 &kp N8 &kp N9 &trans
-                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8 &trans     &kp DOT &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
-                &kp F1 &kp F2  &kp F3  &kp F4  &trans                            &trans &kp N1 &kp N2 &kp N3 &trans
-                                 &trans &trans &trans                            &kp SPACE &trans &trans
+                &kp F9       &kp F10      &kp F11       &kp F12        &trans        &trans         &kp N7        &kp N8        &kp N9       &trans
+                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8  &trans        &kp DOT        &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
+                &kp F1       &kp F2       &kp F3        &kp F4         &trans        &trans         &kp N1        &kp N2        &kp N3       &trans
+                                          &trans        &trans         &trans        &lt LNAV SPACE &trans        &trans
             >;
         };
 
@@ -193,10 +192,10 @@
 
         CAP {
             bindings = <
-                &kp LS(B) &kp LS(Y) &kp LS(O) &kp LS(U) &trans                                  &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
+                &kp LS(B)       &kp LS(Y)       &kp LS(O)        &kp LS(U)        &trans        &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
                 &hlm LALT LS(C) &hlm LWIN LS(I) &hls LCTRL LS(E) &hls LSHFT LS(A) &trans        &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
-                &trans     &trans   &trans    &trans    &trans                                  &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                    &trans    &trans    &trans                                  &kp LS(R)  &trans    &trans
+                &trans          &trans          &trans           &trans           &trans        &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
+                                                &trans           &trans           &trans        &kp LS(R)  &trans    &trans
             >;
         };
     };
