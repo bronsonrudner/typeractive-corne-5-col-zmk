@@ -107,7 +107,7 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &hrs LC(LSHFT) BACKSPACE, 0 LNUM LCAP, 125)
+        COMBO(backspace, 30, 16 17, &hrs LC(LSHFT) BACKSPACE, 0 LNUM LNAV LCAP, 125)
         COMBO(c_backspace, 30, 16 17, &kp LC(BACKSPACE), LTAP, 125)
         COMBO(esc, 70, 11 12 13, &hlm LG(LC(LSHFT)) ESC, 0 LNUM LCAP, 0)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
