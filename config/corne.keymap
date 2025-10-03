@@ -11,7 +11,7 @@
 #include "my_defines.h"
 
 #define LTAP 1
-#define LNUM 2
+#define LFUN 2
 #define LNAV 3
 #define LCAP 4
 
@@ -25,7 +25,7 @@
   };
 
 #define VCOMBO(NAME, KEYPOS, BINDINGS1, BINDINGS2) \
-  COMBO(NAME, 110, KEYPOS, BINDINGS1, 0 LNUM LCAP, 0) \
+  COMBO(NAME, 110, KEYPOS, BINDINGS1, 0 LFUN LCAP, 0) \
   COMBO(s_##NAME, 110, KEYPOS, BINDINGS2, LTAP, 0)
 
 #define LKEYS 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31 32
@@ -114,19 +114,16 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &hrs LC(LSHFT) BACKSPACE, 0 LNUM LNAV LCAP, 125)
-        COMBO(c_backspace, 30, 16 17, &kp LC(BACKSPACE), LTAP, 125)
-        COMBO(esc, 70, 11 12 13, &hlm LG(LC(LSHFT)) ESC, 0 LNUM LCAP, 0)
-        COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LNUM LCAP, 0)
+        COMBO(backspace, 30, 16 17, &hrm RC(RSHFT) BACKSPACE, 0 LFUN LNAV LCAP, 125)
+        COMBO(esc, 70, 11 12 13, &hlm LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
+        COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LFUN LCAP, 0)
         COMBO(win, 25, 11 12, &kp LWIN, 0, 125)
-        COMBO(tab, 25, 12 13, &hls LC(LSHFT) TAB, 0 LNUM LCAP, 125)
-        COMBO(s_tab, 25, 12 13, &kp LS(TAB), LTAP, 125)
-        COMBO(del, 25, 2 3, &kp DEL, 0 LNUM LCAP, 125)
-        COMBO(c_del, 25, 2 3, &kp LC(DEL), LTAP, 125)
+        COMBO(tab, 25, 12 13, &hlm LC(LSHFT) TAB, 0 LFUN LCAP, 125)
+        COMBO(del, 25, 2 3, &kp DEL, 0 LFUN LCAP, 125)
 
-        COMBO(q, 25, 6 7, &kp Q, 0 LNUM, 0)
+        COMBO(q, 25, 6 7, &kp Q, 0 LFUN, 0)
         COMBO(s_q, 25, 6 7, &kp LS(Q), LCAP LTAP, 0)
-        COMBO(z, 25, 26 27, &kp Z, 0 LNUM, 0)
+        COMBO(z, 25, 26 27, &kp Z, 0 LFUN, 0)
         COMBO(s_z, 25, 26 27, &kp LS(Z), LCAP LTAP, 0)
 
         COMBO(cut, 60, 21 22 23, &kp LC(X), 0, 125)
@@ -135,9 +132,9 @@
 
         COMBO(c_left, 110, 6 16, &kp LC(LEFT), LNAV, 0)
         COMBO(c_right, 110, 9 19, &kp LC(RIGHT), LNAV, 0)
-        COMBO(bt_clear, 70, 1 2 3, &bt BT_CLR, LNAV, 0)
-        COMBO(bt_sel1, 70, 11 12 13, &bt BT_SEL 0, LNAV, 0)
-        COMBO(bt_sel2, 70, 21 22 23, &bt BT_SEL 1, LNAV, 0)
+        COMBO(bt_clear, 70, 6 7 8, &bt BT_CLR, LFUN, 0)
+        COMBO(bt_sel1, 70, 16 17 18, &bt BT_SEL 0, LFUN, 0)
+        COMBO(bt_sel2, 70, 26 27 28, &bt BT_SEL 1, LFUN, 0)
 
         VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBKT)
         VCOMBO(rbkt, 2 12, &kp RBKT, &kp EXCL)
@@ -149,6 +146,8 @@
         VCOMBO(colon, 8 18, &kp COLON, &kp COLON)
 
         VCOMBO(star, 11 21, &kp STAR, &kp STAR)
+        VCOMBO(hash, 12 22, &kp GB_HASH, &kp GB_HASH)
+        VCOMBO(dollar, 13 23, &kp DOLLAR, &kp DOLLAR)
         VCOMBO(percent, 14 24, &kp PRCNT, &kp PRCNT)
         VCOMBO(caret, 15 25, &kp CARET, &kp CARET)
         VCOMBO(lbrc, 16 26, &kp LBRC, &kp LBRC)
@@ -174,12 +173,12 @@
             bindings = <
                     _B    _Y    _O    _U   _at          _J    _L    _D    _P    _F
                     _C    _I    _E    _A   _qu          _K    _H    _T    _N    _S
-                  _til  _grv _hash  _dlr  _bsl          _X    _M    _G    _W    _V
+                  _til  _grv    __    __  _bsl          _X    _M    _G    _W    _V
                                 __    __    __          _R    __    __
             >;
         };
 
-        NUM {
+        FUN {
             bindings = <
                    _f9  _f10  _f11  _f12    __          __    __    __    __    __
                   __f5  __f6  __f7  __f8    __          __    __    __    __    __

@@ -118,9 +118,9 @@
 #define __i &hlm LWIN I
 #define __e &hls LCTRL E
 #define __a &hls LSHFT A
-#define __h &hls LSHFT H
-#define __t &hls LCTRL T
-#define __n &hlm LWIN N
+#define __h &hls RSHFT H
+#define __t &hls RCTRL T
+#define __n &hlm RWIN N
 #define __s &hlm LALT S
 // CAP layer
 #define __E &hls LCTRL LS(E)
@@ -137,7 +137,7 @@
 
 // thumb keys
 #define __ent &lt LCAP ENTER
-#define __spc &lt LNUM SPACE
+#define __spc &lt LFUN SPACE
 #define __r &lt LNAV R
 #define __R &lt LNAV LS(R)
 #define _tap &sl LTAP

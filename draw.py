@@ -14,7 +14,7 @@ OUTPUT = "corne.svg"
 # https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
 overrides = r"""
 &kp BACKSPACE ⌫
-&kp LC(BACKSPACE) ^⌫
+&hrm RC(RSHFT) BACKSPACE ⌫
 &kp GB_DQT "
 &kp GB_HASH #
 &kp GB_BSLH \
@@ -32,6 +32,10 @@ overrides = r"""
 &kp LALT alt
 &kp LWIN win
 &kp LSHFT shift
+&kp RCTRL ctrl
+&kp RALT alt
+&kp RWIN win
+&kp RSHFT shift
 &kp LEFT 🡄
 &kp RIGHT 🡆
 &kp UP 🡅
@@ -39,14 +43,13 @@ overrides = r"""
 &kp SPACE ␣
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
-&kp LS(TAB) ⇧tab
-&hls LC(LSHFT) TAB tab
+&hlm LC(LSHFT) TAB tab
 &spaces ⎵⎵⎵⎵
 &kp ENTER ⏎
 &kp DEL del
-&kp LC(DEL) ^del
 &kp LC(LEFT) ^🡄
 &kp LC(RIGHT) ^🡆
+&hlm LG(LC(LSHFT)) ESC esc
 """
 raw_binding_map = dict(
     line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()
