@@ -108,7 +108,7 @@
 #define _left &kp LEFT
 #define _up &kp UP
 #define _down &kp DOWN
-#define _right &kp RIGHT
+#define _rght &kp RIGHT
 #define _vdn &kp C_VOL_DN
 #define _vup &kp C_VOL_UP
 
@@ -123,7 +123,7 @@
 #define __n &hlm LWIN N
 #define __s &hlm LALT S
 // CAP layer
-#define __E &hls LCTRL E
+#define __E &hls LCTRL LS(E)
 // NAV layer
 #define __0 &hlm LALT N0
 #define __4 &hlm LWIN N4
@@ -139,4 +139,5 @@
 #define __ent &lt LCAP ENTER
 #define __spc &lt LNUM SPACE
 #define __r &lt LNAV R
+#define __R &lt LNAV LS(R)
 #define _tap &sl LTAP

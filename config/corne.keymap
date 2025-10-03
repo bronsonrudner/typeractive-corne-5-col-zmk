@@ -163,46 +163,46 @@
 
         default_layer {
             bindings = <
-                  _b   _y   _o    _u  _min    _j   _l  _d  _p  _f
-                 __c  __i  __e   __a  _und    _k  __h __t __n __s
-                _sqt _dqt _dot  _com  _fsl    _x   _m  _g  _w  _v
-                            __ __ent __spc   __r _tap  __
+                    _b    _y    _o    _u  _min          _j    _l    _d    _p    _f
+                   __c   __i   __e   __a  _und          _k   __h   __t   __n   __s
+                  _sqt  _dqt  _dot  _com  _fsl          _x    _m    _g    _w    _v
+                                __ __ent __spc         __r  _tap    __
             >;
         };
 
         TAP {
             bindings = <
-                  _B   _Y    _O   _U   _at    _J   _L _D _P _F
-                  _C   _I    _E   _A   _qu    _K   _H _T _N _S
-                _til _grv _hash _dlr  _bsl    _X   _M _G _W _V
-                             __   __    __    _R _esc __
+                    _B    _Y    _O    _U   _at          _J    _L    _D    _P    _F
+                    _C    _I    _E    _A   _qu          _K    _H    _T    _N    _S
+                  _til  _grv _hash  _dlr  _bsl          _X    _M    _G    _W    _V
+                                __    __    __          _R    __    __
             >;
         };
 
         NUM {
             bindings = <
-                 _f9  _f10  _f11  _f12 __          __ _7 _8 _9 __
-                __f5  __f6  __f7  __f8 __        _dot &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
-                 _f1   _f2   _f3   _f4 __          __ _1 _2 _3 __
-                                 __ __ __          __ __ __
+                   _f9  _f10  _f11  _f12    __          __    __    __    __    __
+                  __f5  __f6  __f7  __f8    __          __    __    __    __    __
+                   _f1   _f2   _f3   _f4    __          __    __    __    __    __
+                                __    __    __          __    __    __
             >;
         };
 
         NAV {
             bindings = <
-                 __  _7  _8  _9 __      __   _hm _pgup _pgdn   _end
-                __0 __4 __5 __6 __    _ins _left   _up _down _right
-                 __  _1  _2  _3 __      __  _vdn    __    __   _vup
-                        __  __  __      __    __    __
+                    __    _7    _8    _9    __          __   _hm _pgup _pgdn  _end
+                   __0   __4   __5   __6    __        _ins _left   _up _down _rght
+                    __    _1    _2    _3    __          __  _vdn    __    __  _vup
+                                __    __    __          __    __    __
             >;
         };
 
         CAP {
             bindings = <
-                _B _Y  _O _U __    _J _L _D _P _F
-                _C _I __E _A __    _K _H _T _N _S
-                __ __  __ __ __    _X _M _G _W _V
-                       __ __ __    _R __ __
+                    _B    _Y    _O    _U    __          _J    _L    _D    _P    _F
+                    _C    _I   __E    _A    __          _K    _H    _T    _N    _S
+                    __    __    __    __    __          _X    _M    _G    _W    _V
+                                __    __    __         __R    __    __
             >;
         };
     };
