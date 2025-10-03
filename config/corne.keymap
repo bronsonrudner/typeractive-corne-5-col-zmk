@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
+#include "my_defines.h"
 
 #define LTAP 1
 #define LNUM 2
@@ -39,6 +40,12 @@
     hold-trigger-key-positions = <KEYS>; \
     hold-trigger-on-release; \
     require-prior-idle-ms = <125>;
+
+#define _lhome(_PINKY, _RING, _MIDDLE, _INDEX) &hlm LALT _PINKY &hlm LWIN _RING &hls LCTRL _MIDDLE &hls LSHFT _INDEX
+#define _rhome(_INDEX, _MIDDLE, _RING, _PINKY) &hrs LSHFT _INDEX &hrs LCTRL _MIDDLE &hrm LWIN _RING &hrm LALT _PINKY
+#define _LHOME(_PINKY, _RING, _MIDDLE, _INDEX) _lhome(LS(_PINKY), LS(_RING), LS(_MIDDLE), LS(_INDEX))
+#define _RHOME(_INDEX, _MIDDLE, _RING, _PINKY) _rhome(LS(_INDEX), LS(_MIDDLE), LS(_RING), LS(_PINKY))
+
 
 &sl {
     release-after-ms = <2000>;
@@ -156,46 +163,46 @@
 
         default_layer {
             bindings = <
-                &kp B       &kp Y       &kp O        &kp U            &kp MINUS      &kp J      &kp L        &kp D        &kp P       &kp F
-                &hlm LALT C &hlm LWIN I &hls LCTRL E &hls LSHFT A     &kp UNDERSCORE &kp K      &hrs LSHFT H &hrs LCTRL T &hrm LWIN N &hrm LALT S
-                &kp SQT     &kp GB_DQT  &kp DOT      &kp COMMA        &kp FSLH       &kp X      &kp M        &kp G        &kp W       &kp V
-                                        &trans       &lt LCAP ENTER   &lt LNUM SPACE &lt LNAV R &sl LTAP     &trans
+                  _b   _y   _o    _u  _min    _j   _l  _d  _p  _f
+                 __c  __i  __e   __a  _und    _k  __h __t __n __s
+                _sqt _dqt _dot  _com  _fsl    _x   _m  _g  _w  _v
+                            __ __ent __spc   __r _tap  __
             >;
         };
 
         TAP {
             bindings = <
-                &kp LS(B)    &kp LS(Y) &kp LS(O)   &kp LS(U)   &kp GB_AT     &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
-                &kp LS(C)    &kp LS(I) &kp LS(E)   &kp LS(A)   &kp QUESTION  &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
-                &kp GB_TILDE &kp GRAVE &kp GB_HASH &kp DLLR    &kp GB_BSLH   &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                       &trans      &trans      &trans        &kp LS(R)  &kp ESC   &trans
+                  _B   _Y    _O   _U   _at    _J   _L _D _P _F
+                  _C   _I    _E   _A   _qu    _K   _H _T _N _S
+                _til _grv _hash _dlr  _bsl    _X   _M _G _W _V
+                             __   __    __    _R _esc __
             >;
         };
 
         NUM {
             bindings = <
-                &kp F9       &kp F10      &kp F11       &kp F12        &trans        &trans         &kp N7        &kp N8        &kp N9       &trans
-                &hlm LALT F5 &hlm LWIN F6 &hls LCTRL F7 &hls LSHFT F8  &trans        &kp DOT        &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
-                &kp F1       &kp F2       &kp F3        &kp F4         &trans        &trans         &kp N1        &kp N2        &kp N3       &trans
-                                          &trans        &trans         &trans        &lt LNAV SPACE &trans        &trans
+                 _f9  _f10  _f11  _f12 __          __ _7 _8 _9 __
+                __f5  __f6  __f7  __f8 __        _dot &hls LSHFT N4 &hls LCTRL N5 &hlm LWIN N6 &hlm LALT N0
+                 _f1   _f2   _f3   _f4 __          __ _1 _2 _3 __
+                                 __ __ __          __ __ __
             >;
         };
 
         NAV {
             bindings = <
-                &trans       &kp N7       &kp N8        &kp N9        &trans     &trans     &kp HOME     &kp PG_UP &kp PG_DN &kp END
-                &hlm LALT N0 &hlm LWIN N4 &hls LCTRL N5 &hls LSHFT N6 &trans     &kp INSERT &kp LEFT     &kp UP    &kp DOWN  &kp RIGHT
-                &trans       &kp N1       &kp N2        &kp N3        &trans     &trans     &kp C_VOL_DN &trans    &trans    &kp C_VOL_UP
-                                          &trans        &trans        &trans     &trans     &trans       &trans
+                 __  _7  _8  _9 __      __   _hm _pgup _pgdn   _end
+                __0 __4 __5 __6 __    _ins _left   _up _down _right
+                 __  _1  _2  _3 __      __  _vdn    __    __   _vup
+                        __  __  __      __    __    __
             >;
         };
 
         CAP {
             bindings = <
-                &kp LS(B)       &kp LS(Y)       &kp LS(O)        &kp LS(U)        &trans        &kp LS(J)  &kp LS(L) &kp LS(D) &kp LS(P) &kp LS(F)
-                &hlm LALT LS(C) &hlm LWIN LS(I) &hls LCTRL LS(E) &hls LSHFT LS(A) &trans        &kp LS(K)  &kp LS(H) &kp LS(T) &kp LS(N) &kp LS(S)
-                &trans          &trans          &trans           &trans           &trans        &kp LS(X)  &kp LS(M) &kp LS(G) &kp LS(W) &kp LS(V)
-                                                &trans           &trans           &trans        &kp LS(R)  &trans    &trans
+                _B _Y  _O _U __    _J _L _D _P _F
+                _C _I __E _A __    _K _H _T _N _S
+                __ __  __ __ __    _X _M _G _W _V
+                       __ __ __    _R __ __
             >;
         };
     };
