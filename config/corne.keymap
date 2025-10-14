@@ -41,11 +41,6 @@
     hold-trigger-on-release; \
     require-prior-idle-ms = <125>;
 
-#define _lhome(_PINKY, _RING, _MIDDLE, _INDEX) &hlm LALT _PINKY &hlm LWIN _RING &hls LCTRL _MIDDLE &hls LSHFT _INDEX
-#define _rhome(_INDEX, _MIDDLE, _RING, _PINKY) &hrs LSHFT _INDEX &hrs LCTRL _MIDDLE &hrm LWIN _RING &hrm LALT _PINKY
-#define _LHOME(_PINKY, _RING, _MIDDLE, _INDEX) _lhome(LS(_PINKY), LS(_RING), LS(_MIDDLE), LS(_INDEX))
-#define _RHOME(_INDEX, _MIDDLE, _RING, _PINKY) _rhome(LS(_INDEX), LS(_MIDDLE), LS(_RING), LS(_PINKY))
-
 
 &sl {
     release-after-ms = <2000>;
@@ -58,18 +53,18 @@
     };
 
     behaviors {
-        hls: homerow_shift_left {
+        hrm_li: eager_homerowmod_left {
             HOMEROWMOD(RKEYS)
             hold-while-undecided;
         };
-        hrs: homerow_shift_right {
+        hrm_ri: eager_homerowmod_right {
             HOMEROWMOD(LKEYS)
             hold-while-undecided;
         };
-        hlm: homerow_other_left {
+        hrm_l: homerowmod_left {
             HOMEROWMOD(RKEYS)
         };
-        hrm: homerow_other_right {
+        hrm_r: homerowmod_right {
             HOMEROWMOD(LKEYS)
         };
 
@@ -114,11 +109,11 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &hrm RC(RSHFT) BACKSPACE, 0 LFUN LNAV LCAP, 125)
-        COMBO(esc, 70, 11 12 13, &hlm LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
+        COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LFUN LNAV LCAP, 125)
+        COMBO(esc, 70, 11 12 13, &hrm_l LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LFUN LCAP, 0)
         COMBO(win, 25, 11 12, &kp LWIN, 0, 125)
-        COMBO(tab, 25, 12 13, &hlm LC(LSHFT) TAB, 0 LFUN LCAP, 125)
+        COMBO(tab, 25, 12 13, &hrm_l LC(LSHFT) TAB, 0 LFUN LCAP, 125)
         COMBO(del, 25, 2 3, &kp DEL, 0 LFUN LCAP, 125)
 
         COMBO(q, 25, 6 7, &kp Q, 0 LFUN, 0)

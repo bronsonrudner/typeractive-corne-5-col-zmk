@@ -114,26 +114,26 @@
 
 // home row mods
 // default layer
-#define __c &hlm LALT C
-#define __i &hlm LWIN I
-#define __e &hls LCTRL E
-#define __a &hls LSHFT A
-#define __h &hls RSHFT H
-#define __t &hls RCTRL T
-#define __n &hlm RWIN N
-#define __s &hlm LALT S
+#define __c &hrm_l LALT C
+#define __i &hrm_l LWIN I
+#define __e &hrm_li LCTRL E
+#define __a &hrm_li LSHFT A
+#define __h &hrm_r RSHFT H
+#define __t &hrm_r RCTRL T
+#define __n &hrm_r RWIN N
+#define __s &hrm_r LALT S
 // CAP layer
-#define __E &hls LCTRL LS(E)
+#define __E &hrm_l LCTRL LS(E)
 // NAV layer
-#define __0 &hlm LALT N0
-#define __4 &hlm LWIN N4
-#define __5 &hls LCTRL N5
-#define __6 &hls LSHFT N6
+#define __0 &hrm_l LALT N0
+#define __4 &hrm_l LWIN N4
+#define __5 &hrm_l LCTRL N5
+#define __6 &hrm_l LSHFT N6
 // NUM layer
-#define __f5 &hlm LALT F5
-#define __f6 &hlm LWIN F6
-#define __f7 &hls LCTRL F7
-#define __f8 &hls LSHFT F8
+#define __f5 &hrm_l LALT F5
+#define __f6 &hrm_l LWIN F6
+#define __f7 &hrm_l LCTRL F7
+#define __f8 &hrm_l LSHFT F8
 
 // thumb keys
 #define __ent &lt LCAP ENTER
