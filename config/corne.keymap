@@ -110,9 +110,9 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LFUN LNAV LCAP, 125)
+        COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LNAV LCAP, 125)
         COMBO(esc, 70, 11 12 13, &hrm_l LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
-        COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LFUN LCAP, 0)
+        COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LCAP, 0)
         COMBO(win, 25, 11 12, &kp LWIN, 0, 125)
         COMBO(tab, 25, 12 13, &hrm_l LC(LSHFT) TAB, 0 LFUN LCAP, 125)
         COMBO(del, 25, 2 3, &kp DEL, 0 LFUN LCAP, 125)
@@ -128,9 +128,9 @@
 
         COMBO(c_left, 110, 6 16, &kp LC(LEFT), LNAV, 0)
         COMBO(c_right, 110, 9 19, &kp LC(RIGHT), LNAV, 0)
-        COMBO(bt_clear, 70, 6 7 8, &bt BT_CLR, LFUN, 0)
-        COMBO(bt_sel1, 70, 16 17 18, &bt BT_SEL 0, LFUN, 0)
-        COMBO(bt_sel2, 70, 26 27 28, &bt BT_SEL 1, LFUN, 0)
+        COMBO(bt_clear, 70, 5 6 7, &bt BT_CLR, LFUN, 0)
+        COMBO(bt_sel1, 70, 6 7 8, &bt BT_SEL 0, LFUN, 0)
+        COMBO(bt_sel2, 70, 7 8 9, &bt BT_SEL 1, LFUN, 0)
 
         VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBKT)
         VCOMBO(rbkt, 2 12, &kp RBKT, &kp EXCL)

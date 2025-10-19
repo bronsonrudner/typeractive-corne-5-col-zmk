@@ -59,6 +59,17 @@ raw_binding_map = dict(
 )
 raw_binding_map["&kp PG_UP"] = "pg up"
 raw_binding_map["&kp PG_DN"] = "pg down"
+raw_binding_map["&mkp LCLK"] = "left click"
+raw_binding_map["&mkp RCLK"] = "right click"
+raw_binding_map["&mkp MCLK"] = "middle click"
+raw_binding_map["&mmv MOVE_LEFT"] = "mouse left"
+raw_binding_map["&mmv MOVE_RIGHT"] = "mouse right"
+raw_binding_map["&mmv MOVE_UP"] = "mouse up"
+raw_binding_map["&mmv MOVE_DOWN"] = "mouse down"
+raw_binding_map["&msc SCRL_LEFT"] = "scroll left"
+raw_binding_map["&msc SCRL_RIGHT"] = "scroll right"
+raw_binding_map["&msc SCRL_UP"] = "scroll up"
+raw_binding_map["&msc SCRL_DOWN"] = "scroll down"
 for char in string.ascii_uppercase:
     raw_binding_map[f"&kp {char}"] = char.lower()
     raw_binding_map[f"&kp LS({char})"] = char
