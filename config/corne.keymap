@@ -7,13 +7,14 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/pointing.h>
 #include "keys_en_gb.h"  // https://github.com/joelspadin/zmk-locale-generator/releases/tag/v1.5.0
 #include "my_defines.h"
 
-#define LTAP 1
-#define LFUN 2
-#define LNAV 3
-#define LCAP 4
+#define LCAP 1
+#define LTAP 2
+#define LFUN 3
+#define LNAV 4
 
 #define COMBO(NAME, TERM, KEYPOS, BINDINGS, LAYERS, PRIORIDLE) \
   combo_##NAME { \
@@ -141,8 +142,8 @@
         VCOMBO(colon, 8 18, &kp COLON, &kp COLON)
 
         VCOMBO(star, 11 21, &kp STAR, &kp STAR)
-        VCOMBO(hash, 12 22, &kp GB_HASH, &kp GB_HASH)
-        VCOMBO(dollar, 13 23, &kp DOLLAR, &kp DOLLAR)
+        VCOMBO(hash, 12 22, &kp GB_HASH, &kp GB_POUND)
+        VCOMBO(dollar, 13 23, &kp DOLLAR, &kp GB_EURO)
         VCOMBO(percent, 14 24, &kp PRCNT, &kp PRCNT)
         VCOMBO(caret, 15 25, &kp CARET, &kp CARET)
         VCOMBO(lbrc, 16 26, &kp LBRC, &kp LBRC)
@@ -164,6 +165,15 @@
             >;
         };
 
+        CAP {
+            bindings = <
+                    _B    _Y    _O    _U    __          _J    _L    _D    _P    _F
+                    _C    _I   __E    _A    __          _K    _H    _T    _N    _S
+                    __    __    __    __    __          _X    _M    _G    _W    _V
+                                __    __    __         __R    __    __
+            >;
+        };
+
         TAP {
             bindings = <
                     _B    _Y    _O    _U   _at          _J    _L    _D    _P    _F
@@ -175,28 +185,19 @@
 
         FUN {
             bindings = <
-                   _f9  _f10  _f11  _f12    __          __    __    __    __    __
-                  __f5  __f6  __f7  __f8    __          __    __    __    __    __
-                   _f1   _f2   _f3   _f4    __          __    __    __    __    __
+                   _f9  _f10  _f11  _f12    __          __   _m1   _m2   _m3    __
+                  __f5  __f6  __f7  __f8    __          __ _mlft  _mup  _mdn _mrgt
+                   _f1   _f2   _f3   _f4    __          __ _slft  _sup  _sdn _srgt
                                 __    __    __          __    __    __
             >;
         };
 
         NAV {
             bindings = <
-                    __    _7    _8    _9    __          __   _hm _pgup _pgdn  _end
+                  _dot    _7    _8    _9    __          __   _hm _pgup _pgdn  _end
                    __0   __4   __5   __6    __        _ins _left   _up _down _rght
-                    __    _1    _2    _3    __          __  _vdn    __    __  _vup
+                  _com    _1    _2    _3    __          __  _vdn    __    __  _vup
                                 __    __    __          __    __    __
-            >;
-        };
-
-        CAP {
-            bindings = <
-                    _B    _Y    _O    _U    __          _J    _L    _D    _P    _F
-                    _C    _I   __E    _A    __          _K    _H    _T    _N    _S
-                    __    __    __    __    __          _X    _M    _G    _W    _V
-                                __    __    __         __R    __    __
             >;
         };
     };

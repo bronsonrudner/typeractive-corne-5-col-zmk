@@ -20,7 +20,7 @@ overrides = r"""
 &kp GB_BSLH \
 &kp GB_EURO €
 &kp GB_AT @
-&kp POUND £
+&kp GB_POUND £
 &kp GB_TILDE ~
 &kp GB_PIPE |
 &kp LC(X) cut
@@ -50,10 +50,15 @@ overrides = r"""
 &kp LC(LEFT) ^🡄
 &kp LC(RIGHT) ^🡆
 &hrm_l LG(LC(LSHFT)) ESC esc
+&kp HOME home
+&kp END end
+&kp INSERT ins
 """
 raw_binding_map = dict(
     line.rsplit(maxsplit=1) for line in overrides.strip().splitlines()
 )
+raw_binding_map["&kp PG_UP"] = "pg up"
+raw_binding_map["&kp PG_DN"] = "pg down"
 for char in string.ascii_uppercase:
     raw_binding_map[f"&kp {char}"] = char.lower()
     raw_binding_map[f"&kp LS({char})"] = char

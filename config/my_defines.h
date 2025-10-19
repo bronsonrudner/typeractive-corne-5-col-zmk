@@ -80,6 +80,7 @@
 #define _f11 &kp F11
 #define _f12 &kp F12
 
+// common symbols
 #define _min &kp MINUS
 #define _und &kp UNDERSCORE
 #define _sqt &kp SQT
@@ -94,12 +95,16 @@
 #define _grv &kp GRAVE
 #define _hash &kp GB_HASH
 #define _dlr &kp DLLR
+// extra symbols
+// #define _pnd &kp GB_POUND
+// #define _eur &kp GB_EURO
 
+// control and whitespace keys
 #define _esc &kp ESC
 #define _tab &kp TAB
 #define _ent &kp ENTER
 
-// nav keys
+// navigation
 #define _hm &kp HOME
 #define _pgup &kp PG_UP
 #define _pgdn &kp PG_DN
@@ -111,6 +116,19 @@
 #define _rght &kp RIGHT
 #define _vdn &kp C_VOL_DN
 #define _vup &kp C_VOL_UP
+
+// mouse
+#define _m1 &mkp LCLK
+#define _m2 &mkp RCLK
+#define _m3 &mkp MCLK
+#define _mlft &mmv MOVE_LEFT
+#define _mup &mmv MOVE_UP
+#define _mdn &mmv MOVE_DOWN
+#define _mrgt &mmv MOVE_RIGHT
+#define _slft &msc SCRL_LEFT
+#define _sup &msc SCRL_UP
+#define _sdn &msc SCRL_DOWN
+#define _srgt &msc SCRL_RIGHT
 
 // home row mods
 // default layer
@@ -129,7 +147,7 @@
 #define __4 &hrm_l LWIN N4
 #define __5 &hrm_l LCTRL N5
 #define __6 &hrm_l LSHFT N6
-// NUM layer
+// FUN layer
 #define __f5 &hrm_l LALT F5
 #define __f6 &hrm_l LWIN F6
 #define __f7 &hrm_l LCTRL F7
