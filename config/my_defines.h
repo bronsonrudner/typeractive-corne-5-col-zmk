@@ -96,8 +96,8 @@
 #define _hash &kp GB_HASH
 #define _dlr &kp DLLR
 // extra symbols
-// #define _pnd &kp GB_POUND
-// #define _eur &kp GB_EURO
+#define _pnd &kp GB_POUND_SIGN
+#define _eur &kp GB_EURO
 
 // control and whitespace keys
 #define _esc &kp ESC
@@ -159,3 +159,5 @@
 #define __r &lt LNAV R
 #define __R &lt LNAV LS(R)
 #define _tap &sl LTAP
+
+#define _sent &semienter

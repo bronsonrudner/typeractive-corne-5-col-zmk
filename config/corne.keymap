@@ -92,6 +92,12 @@
             bindings = <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>, <&macro_tap &kp SPACE>;
         };
 
+        semienter: semienter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SEMI>, <&macro_tap &kp ENTER>;
+        };
+
         brcs: brcs {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -132,6 +138,7 @@
         COMBO(bt_sel1, 70, 6 7 8, &bt BT_SEL 0, LFUN, 0)
         COMBO(bt_sel2, 70, 7 8 9, &bt BT_SEL 1, LFUN, 0)
 
+        VCOMBO(backtick, 0 10, _grv, _grv)
         VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBKT)
         VCOMBO(rbkt, 2 12, &kp RBKT, &kp EXCL)
         VCOMBO(equal, 3 13, &kp EQUAL, &kp PLUS)
@@ -140,10 +147,11 @@
         VCOMBO(lpar, 6 16, &kp LPAR, &kp LT)
         VCOMBO(rpar, 7 17, &kp RPAR, &kp GT)
         VCOMBO(colon, 8 18, &kp COLON, &kp COLON)
+        COMBO(num_colon, 110, 8 18, &kp COLON, LNAV, 0)
 
         VCOMBO(star, 11 21, &kp STAR, &kp STAR)
-        VCOMBO(hash, 12 22, &kp GB_HASH, &kp GB_POUND)
-        VCOMBO(dollar, 13 23, &kp DOLLAR, &kp GB_EURO)
+        VCOMBO(hash, 12 22, _hash, _pnd)
+        VCOMBO(dollar, 13 23, _dlr, _eur)
         VCOMBO(percent, 14 24, &kp PRCNT, &kp PRCNT)
         VCOMBO(caret, 15 25, &kp CARET, &kp CARET)
         VCOMBO(lbrc, 16 26, &kp LBRC, &kp LBRC)
@@ -179,7 +187,7 @@
                     _B    _Y    _O    _U   _at          _J    _L    _D    _P    _F
                     _C    _I    _E    _A   _qu          _K    _H    _T    _N    _S
                   _til  _grv    __    __  _bsl          _X    _M    _G    _W    _V
-                                __    __    __         __R    __    __
+                                __ _sent    __         __R    __    __
             >;
         };
 

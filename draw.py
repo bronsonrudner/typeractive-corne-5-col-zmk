@@ -20,7 +20,7 @@ overrides = r"""
 &kp GB_BSLH \
 &kp GB_EURO €
 &kp GB_AT @
-&kp GB_POUND £
+&kp GB_POUND_SIGN £
 &kp GB_TILDE ~
 &kp GB_PIPE |
 &kp LC(X) cut
@@ -111,12 +111,13 @@ for combo in config["combos"]:
         ):
             combo["hidden"] = True
 # Don't show the CAP layer at all
+del config["layers"]["CAP"]
 for combo in config["combos"]:
     if "CAP" in combo["l"]:
         combo["l"].remove("CAP")
+    # Move default combos to their own layer
     if "default" in combo["l"]:
         combo["l"] = ["combos"]
-del config["layers"]["CAP"]
 # Show combos second
 config["layers"] = {
     "default": config["layers"]["default"],
