@@ -119,7 +119,7 @@
         COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LNAV LCAP, 125)
         COMBO(esc, 70, 11 12 13, &hrm_l LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LCAP, 0)
-        COMBO(win, 25, 11 12, &kp LWIN, 0, 125)
+        COMBO(win, 25, 11 12, &hrm_l LC(LWIN) LWIN, 0, 125)
         COMBO(tab, 25, 12 13, &hrm_l LC(LSHFT) TAB, 0 LFUN LCAP, 125)
         COMBO(del, 25, 2 3, &kp DEL, 0 LFUN LCAP, 125)
 
@@ -186,7 +186,7 @@
             bindings = <
                     _B    _Y    _O    _U   _at          _J    _L    _D    _P    _F
                     _C    _I    _E    _A   _qu          _K    _H    _T    _N    _S
-                  _til  _grv    __    __  _bsl          _X    _M    _G    _W    _V
+                  _til  _grv   _lt   _gt  _bsl          _X    _M    _G    _W    _V
                                 __ _sent    __         __R    __    __
             >;
         };
