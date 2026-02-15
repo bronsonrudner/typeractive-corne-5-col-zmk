@@ -117,7 +117,7 @@
         compatible = "zmk,combos";
 
         // fix bug where sometimes not all keys register
-        COMBO(all, 75, 11 12 13 14, &kp LA(LG(LC(LSHFT))), 0, 125)
+        COMBO(all, 75, 10 11 12 13, &kp LA(LG(LC(LSHFT))), 0, 125)
 
         COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LNAV LCAP, 125)
         COMBO(esc, 70, 11 12 13, &hrm_l LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
