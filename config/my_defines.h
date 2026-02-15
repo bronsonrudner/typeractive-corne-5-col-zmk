@@ -97,6 +97,8 @@
 #define _dlr &kp DLLR
 #define _gt &kp GT
 #define _lt &kp LT
+#define _star &kp STAR
+#define _semi &kp SEMI
 // extra symbols
 #define _pnd &kp GB_POUND_SIGN
 #define _eur &kp GB_EURO

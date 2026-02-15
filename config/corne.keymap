@@ -116,6 +116,9 @@
     combos {
         compatible = "zmk,combos";
 
+        // fix bug where sometimes not all keys register
+        COMBO(all, 25, 11 12 13 14, &kp LA(LG(LC(LSHFT))), 0, 125)
+
         COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LNAV LCAP, 125)
         COMBO(esc, 70, 11 12 13, &hrm_l LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LCAP, 0)
@@ -139,7 +142,7 @@
         COMBO(bt_sel2, 70, 7 8 9, &bt BT_SEL 1, LFUN, 0)
 
         VCOMBO(backtick, 0 10, _grv, _grv)
-        VCOMBO(lbkt, 1 11, &kp LBKT, &kp LBKT)
+        VCOMBO(lbkt, 1 11, &kp LBKT, &kp STAR)
         VCOMBO(rbkt, 2 12, &kp RBKT, &kp EXCL)
         VCOMBO(equal, 3 13, &kp EQUAL, &kp PLUS)
         VCOMBO(pipe, 4 14, &kp GB_PIPE, &kp GB_PIPE)
@@ -169,7 +172,7 @@
                     _b    _y    _o    _u  _min          _j    _l    _d    _p    _f
                    __c   __i   __e   __a  _und          _k   __h   __t   __n   __s
                   _sqt  _dqt  _dot  _com  _fsl          _x    _m    _g    _w    _v
-                                __ __ent __spc         __r  _tap    __
+                              _esc __ent __spc         __r  _tap _semi
             >;
         };
 
