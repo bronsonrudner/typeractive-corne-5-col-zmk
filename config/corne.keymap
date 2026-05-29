@@ -77,6 +77,15 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        semienter_caps: semienter_caps {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <200>;
+            flavor = "balanced";
+            bindings = <&mo>, <&semienter>;
+        };
     };
 
     macros {
@@ -119,7 +128,7 @@
         // fix bug where sometimes not all keys register
         COMBO(all, 75, 10 11 12 13, &kp LA(LG(LC(LSHFT))), 0, 125)
 
-        COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LNAV LCAP, 125)
+        COMBO(backspace, 30, 16 17, &hrm_r RC(RSHFT) BACKSPACE, 0 LNAV LCAP LTAP, 125)
         COMBO(esc, 70, 11 12 13, &hrm_l LG(LC(LSHFT)) ESC, 0 LFUN LCAP, 0)
         COMBO(enter, 70, 16 17 18, &kp ENTER, 0 LCAP, 0)
         COMBO(win, 25, 11 12, &hrm_l LC(LWIN) LWIN, 0, 125)

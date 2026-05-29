@@ -164,4 +164,4 @@
 #define __R &lt LNAV LS(R)
 #define _tap &sl LTAP
 
-#define _sent &semienter
+#define _sent &semienter_caps LCAP 0
