@@ -144,6 +144,7 @@
         COMBO(copy, 35, 21 22, &kp LC(C), 0, 125)
         COMBO(paste, 35, 22 23, &kp LC(V), 0, 125)
 
+        COMBO(right, 30, 17 18, &hrm_r RC(RWIN) RIGHT, 0, 125)
         COMBO(c_left, 110, 6 16, &kp LC(LEFT), LNAV, 0)
         COMBO(c_right, 110, 9 19, &kp LC(RIGHT), LNAV, 0)
         COMBO(bt_clear, 70, 5 6 7, &bt BT_CLR, LFUN, 0)
