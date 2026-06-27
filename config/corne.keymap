@@ -134,6 +134,7 @@
         COMBO(win, 25, 11 12, &hrm_l LC(LWIN) LWIN, 0, 125)
         COMBO(tab, 25, 12 13, &hrm_l LC(LSHFT) TAB, 0 LFUN LCAP, 125)
         COMBO(del, 25, 2 3, &kp DEL, 0 LFUN LCAP, 125)
+        COMBO(right, 50, 15 16, &kp RIGHT, 0, 125)
 
         COMBO(q, 25, 6 7, &kp Q, 0 LFUN, 0)
         COMBO(s_q, 25, 6 7, &kp LS(Q), LCAP LTAP, 0)
@@ -144,7 +145,6 @@
         COMBO(copy, 35, 21 22, &kp LC(C), 0, 125)
         COMBO(paste, 35, 22 23, &kp LC(V), 0, 125)
 
-        COMBO(right, 30, 17 18, &hrm_r RC(RWIN) RIGHT, 0, 125)
         COMBO(c_left, 110, 6 16, &kp LC(LEFT), LNAV, 0)
         COMBO(c_right, 110, 9 19, &kp LC(RIGHT), LNAV, 0)
         COMBO(bt_clear, 70, 5 6 7, &bt BT_CLR, LFUN, 0)
