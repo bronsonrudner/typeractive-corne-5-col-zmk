@@ -59,6 +59,11 @@ raw_binding_map = dict(
 )
 raw_binding_map["&kp PG_UP"] = "pg up"
 raw_binding_map["&kp PG_DN"] = "pg down"
+raw_binding_map["&bt BT_CLR"] = "CLR"
+raw_binding_map["&bt BT_SEL 0"] = "B1"
+raw_binding_map["&bt BT_SEL 1"] = "B2"
+raw_binding_map["&kp ESC"] = "esc"
+raw_binding_map["&semienter_caps LCAP 0"] = {"tap": ";⏎", "hold": "CAP"}
 raw_binding_map["&mkp LCLK"] = "left click"
 raw_binding_map["&mkp RCLK"] = "right click"
 raw_binding_map["&mkp MCLK"] = "middle click"
@@ -101,6 +106,27 @@ raw_config = check_output(
     text=True,
 )
 config = yaml.safe_load(raw_config)
+
+# Replace implementation-oriented layer names wherever they appear as labels
+# in keys, while keeping the actual firmware layer names intact.
+layer_names = {
+    "default": "BASE",
+    "combos": "COMBOS",
+    "CAP": "CAPS",
+    "TAP": "CAP",
+    "FUN": "FN",
+    "NAV": "NAV",
+}
+for layer in config["layers"].values():
+    for index, key in enumerate(layer):
+        if not isinstance(key, dict):
+            if key in layer_names:
+                layer[index] = layer_names[key]
+            continue
+        for label in ("t", "h", "s", "l", "r", "tap", "hold", "shifted", "left", "right"):
+            if key.get(label) in layer_names:
+                key[label] = layer_names[key[label]]
+
 # Don't repeat any default combos in other layers
 for combo in config["combos"]:
     if "default" not in combo["l"]:
@@ -124,6 +150,14 @@ config["layers"] = {
     "combos": config["layers"]["combos"],
     **{name: layer for name, layer in config["layers"].items()},
 }
+
+# Use short, readable names in the published diagram. These are display
+# names only; the layer names and bindings in the firmware stay unchanged.
+config["layers"] = {
+    layer_names.get(name, name): layer for name, layer in config["layers"].items()
+}
+for combo in config["combos"]:
+    combo["l"] = [layer_names.get(name, name) for name in combo["l"]]
 
 with tempfile.NamedTemporaryFile(mode="w+") as f:
     f.write(yaml.dump(config, sort_keys=False))
