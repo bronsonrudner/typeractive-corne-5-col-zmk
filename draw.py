@@ -59,11 +59,12 @@ raw_binding_map = dict(
 )
 raw_binding_map["&kp PG_UP"] = "pg up"
 raw_binding_map["&kp PG_DN"] = "pg down"
-raw_binding_map["&bt BT_CLR"] = "CLR"
-raw_binding_map["&bt BT_SEL 0"] = "B1"
-raw_binding_map["&bt BT_SEL 1"] = "B2"
+raw_binding_map["&bt BT_CLR"] = {"tap": "BtClr", "hold": "FN"}
+raw_binding_map["&bt BT_SEL 0"] = {"tap": "Bt1", "hold": "FN"}
+raw_binding_map["&bt BT_SEL 1"] = {"tap": "Bt2", "hold": "FN"}
 raw_binding_map["&kp ESC"] = "esc"
 raw_binding_map["&semienter_caps LCAP 0"] = {"tap": ";⏎", "hold": "CAP"}
+raw_binding_map["&hrm_l LC(LWIN) LWIN"] = "win"
 raw_binding_map["&mkp LCLK"] = "left click"
 raw_binding_map["&mkp RCLK"] = "right click"
 raw_binding_map["&mkp MCLK"] = "middle click"
@@ -80,9 +81,14 @@ for char in string.ascii_uppercase:
     raw_binding_map[f"&kp LS({char})"] = char
 
 combos = {
+    "combo_all": {"hidden": True},
     "combo_brcs": {"hidden": True},
     "combo_cut": {"align": "bottom"},
     "combo_enter": {"hidden": True},
+    "combo_esc": {"draw_separate": True},
+    "combo_bt_clear": {"draw_separate": True},
+    "combo_bt_sel1": {"draw_separate": True},
+    "combo_bt_sel2": {"draw_separate": True},
 }
 
 overrides = dict(
