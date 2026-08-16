@@ -417,7 +417,7 @@ path.combo {
 </g>
 <g class="combo combopos-6">
 <rect rx="6" ry="6" x="490" y="82" width="28" height="26" class="combo"/>
-<text x="504" y="94" class="combo tap">🡆</text>
+<text x="504" y="94" class="combo tap">⇒</text>
 </g>
 <g class="combo combopos-7">
 <rect rx="6" ry="6" x="546" y="18" width="28" height="26" class="combo"/>
@@ -950,19 +950,23 @@ path.combo {
 </g>
 <g transform="translate(532, 91)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">🡄</text>
+<text x="0" y="0" class="key tap">⇐</text>
+<text x="0" y="24" class="key hold">shift</text>
 </g>
 <g transform="translate(588, 84)" class="key keypos-17">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">🡅</text>
+<text x="0" y="0" class="key tap">⇑</text>
+<text x="0" y="24" class="key hold">ctrl</text>
 </g>
 <g transform="translate(644, 91)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">🡇</text>
+<text x="0" y="0" class="key tap">⇓</text>
+<text x="0" y="24" class="key hold">win</text>
 </g>
 <g transform="translate(700, 105)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">🡆</text>
+<text x="0" y="0" class="key tap">⇒</text>
+<text x="0" y="24" class="key hold">alt</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1029,11 +1033,11 @@ path.combo {
 </g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="518" y="50" width="28" height="26" class="combo"/>
-<text x="532" y="63" class="combo tap">^🡄</text>
+<text x="532" y="63" class="combo tap">^⇐</text>
 </g>
 <g class="combo combopos-1">
 <rect rx="6" ry="6" x="686" y="64" width="28" height="26" class="combo"/>
-<text x="700" y="77" class="combo tap">^🡆</text>
+<text x="700" y="77" class="combo tap">^⇒</text>
 </g>
 </g>
 </g>

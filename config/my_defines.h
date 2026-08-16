@@ -114,10 +114,10 @@
 #define _pgdn &kp PG_DN
 #define _end &kp END
 #define _ins &kp INSERT
-#define _left &kp LEFT
-#define _up &kp UP
-#define _down &kp DOWN
-#define _rght &kp RIGHT
+#define _left &mt RSHFT LEFT
+#define _up &mt RCTRL UP
+#define _down &mt RWIN DOWN
+#define _rght &mt LALT RIGHT
 #define _vdn &kp C_VOL_DN
 #define _vup &kp C_VOL_UP
 

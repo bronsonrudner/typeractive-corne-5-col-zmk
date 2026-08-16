@@ -36,10 +36,10 @@ overrides = r"""
 &kp RALT alt
 &kp RWIN win
 &kp RSHFT shift
-&kp LEFT 🡄
-&kp RIGHT 🡆
-&kp UP 🡅
-&kp DOWN 🡇
+&kp LEFT ⇐
+&kp RIGHT ⇒
+&kp UP ⇑
+&kp DOWN ⇓
 &kp SPACE ␣
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
@@ -47,8 +47,8 @@ overrides = r"""
 &spaces ⎵⎵⎵⎵
 &kp ENTER ⏎
 &kp DEL del
-&kp LC(LEFT) ^🡄
-&kp LC(RIGHT) ^🡆
+&kp LC(LEFT) ^⇐
+&kp LC(RIGHT) ^⇒
 &hrm_l LG(LC(LSHFT)) ESC esc
 &kp HOME home
 &kp END end
