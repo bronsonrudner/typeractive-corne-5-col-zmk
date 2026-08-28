@@ -90,7 +90,7 @@
         ctrl_v: ctrl_v {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <20>;
+            wait-ms = <50>;
             bindings =
                 <&macro_press &kp LCTRL>,
                 <&macro_tap &kp V>,
