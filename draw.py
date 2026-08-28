@@ -3,28 +3,19 @@
 
 import json
 import os
-import re
 import string
 import tempfile
 from pathlib import Path
 from subprocess import check_output
 
 import yaml
+from src.glyphs import inline_glyphs, load_glyphs
 
-OUTPUT = "corne.svg"
+REPO = Path(__file__).parent
+OUTPUT = REPO / "corne.svg"
+GLYPH_DIR = REPO / "glyphs"
+glyphs = load_glyphs(GLYPH_DIR)
 # https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
-arrow_paths = {
-    "arrow_left": "M40 16H21V7L6 24l15 17v-9h19z",
-    "arrow_up": "M16 40V21H7L24 6l17 15h-9v19z",
-    "arrow_down": "M16 8v19H7l17 15 17-15h-9V8z",
-    "arrow_right": "M8 16h19V7l15 17-15 17v-9H8z",
-}
-arrow_style = "fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"
-arrow_glyphs = {
-    name: f'<svg viewBox="0 0 48 48"><path d="{path}" style="{arrow_style}"/></svg>'
-    for name, path in arrow_paths.items()
-}
-
 overrides = r"""
 &kp BACKSPACE ⌫
 &hrm_r RC(RSHFT) BACKSPACE ⌫
@@ -111,13 +102,12 @@ overrides = dict(
 
 env = os.environ | {f"KEYMAP_{k}": json.dumps(v) for k, v in overrides.items()}
 
-repo = Path(__file__).parent
 raw_config = check_output(
     [
         "keymap",
         "parse",
         "-z",
-        repo / "config/corne.keymap",
+        REPO / "config/corne.keymap",
         "--virtual-layers",
         "combos",
     ],
@@ -181,26 +171,14 @@ for combo in config["combos"]:
 config["draw_config"] = {
     **config.get("draw_config", {}),
     "glyph_tap_size": 18,
-    "glyphs": arrow_glyphs,
+    "glyphs": glyphs,
 }
 
 with tempfile.NamedTemporaryFile(mode="w+") as f:
     f.write(yaml.dump(config, sort_keys=False))
     f.flush()
-    svg = check_output(["keymap", "draw", f.name], env=env, text=True)
-
-for name, path in arrow_paths.items():
-    use_pattern = re.compile(
-        rf'<use href="#{name}"[^>]* x="([^"]+)" y="([^"]+)" height="([^"]+)" width="([^"]+)" class="([^"]+)"/>'
+    drawn_svg = check_output(["keymap", "draw", f.name], env=env, text=True)
+    OUTPUT.write_text(
+        inline_glyphs(drawn_svg, config["draw_config"]["glyphs"]),
+        encoding="utf-8",
     )
-
-    def inline_arrow(match: re.Match[str]) -> str:
-        x, y, height, width, classes = match.groups()
-        return (
-            f'<svg x="{x}" y="{y}" height="{height}" width="{width}" viewBox="0 0 48 48" '
-            f'class="{classes}"><path d="{path}" style="{arrow_style}"/></svg>'
-        )
-
-    svg = use_pattern.sub(inline_arrow, svg)
-
-repo.joinpath(OUTPUT).write_text(svg)
