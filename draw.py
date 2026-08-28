@@ -3,6 +3,7 @@
 
 import json
 import os
+import re
 import string
 import tempfile
 from pathlib import Path
@@ -12,6 +13,18 @@ import yaml
 
 OUTPUT = "corne.svg"
 # https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
+arrow_paths = {
+    "arrow_left": "M40 16H21V7L6 24l15 17v-9h19z",
+    "arrow_up": "M16 40V21H7L24 6l17 15h-9v19z",
+    "arrow_down": "M16 8v19H7l17 15 17-15h-9V8z",
+    "arrow_right": "M8 16h19V7l15 17-15 17v-9H8z",
+}
+arrow_style = "fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"
+arrow_glyphs = {
+    name: f'<svg viewBox="0 0 48 48"><path d="{path}" style="{arrow_style}"/></svg>'
+    for name, path in arrow_paths.items()
+}
+
 overrides = r"""
 &kp BACKSPACE ⌫
 &hrm_r RC(RSHFT) BACKSPACE ⌫
@@ -36,10 +49,10 @@ overrides = r"""
 &kp RALT alt
 &kp RWIN win
 &kp RSHFT shift
-&kp LEFT ⇐
-&kp RIGHT ⇒
-&kp UP ⇑
-&kp DOWN ⇓
+&kp LEFT $$arrow_left$$
+&kp RIGHT $$arrow_right$$
+&kp UP $$arrow_up$$
+&kp DOWN $$arrow_down$$
 &kp SPACE ␣
 &kp C_VOL_DN 🔉
 &kp C_VOL_UP 🔊
@@ -165,9 +178,29 @@ config["layers"] = {
 for combo in config["combos"]:
     combo["l"] = [layer_names.get(name, name) for name in combo["l"]]
 
+config["draw_config"] = {
+    **config.get("draw_config", {}),
+    "glyph_tap_size": 18,
+    "glyphs": arrow_glyphs,
+}
+
 with tempfile.NamedTemporaryFile(mode="w+") as f:
     f.write(yaml.dump(config, sort_keys=False))
     f.flush()
-    repo.joinpath(OUTPUT).write_text(
-        check_output(["keymap", "draw", f.name], env=env, text=True)
+    svg = check_output(["keymap", "draw", f.name], env=env, text=True)
+
+for name, path in arrow_paths.items():
+    use_pattern = re.compile(
+        rf'<use href="#{name}"[^>]* x="([^"]+)" y="([^"]+)" height="([^"]+)" width="([^"]+)" class="([^"]+)"/>'
     )
+
+    def inline_arrow(match: re.Match[str]) -> str:
+        x, y, height, width, classes = match.groups()
+        return (
+            f'<svg x="{x}" y="{y}" height="{height}" width="{width}" viewBox="0 0 48 48" '
+            f'class="{classes}"><path d="{path}" style="{arrow_style}"/></svg>'
+        )
+
+    svg = use_pattern.sub(inline_arrow, svg)
+
+repo.joinpath(OUTPUT).write_text(svg)

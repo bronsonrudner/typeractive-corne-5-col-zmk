@@ -1,4 +1,18 @@
 <svg width="803" height="2184" viewBox="0 0 803 2184" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>/* start glyphs */
+<svg id="arrow_down">
+<svg viewBox="0 0 48 48"><path d="M16 8v19H7l17 15 17-15h-9V8z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
+</svg>
+<svg id="arrow_left">
+<svg viewBox="0 0 48 48"><path d="M40 16H21V7L6 24l15 17v-9h19z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
+</svg>
+<svg id="arrow_right">
+<svg viewBox="0 0 48 48"><path d="M8 16h19V7l15 17-15 17v-9H8z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
+</svg>
+<svg id="arrow_up">
+<svg viewBox="0 0 48 48"><path d="M16 40V21H7L24 6l17 15h-9v19z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
+</svg>
+</defs>/* end glyphs */
 <style>/* inherit to force styles through use tags */
 svg path {
     fill: inherit;
@@ -68,25 +82,25 @@ text.footer {
 }
 
 /* styling for combo tap, and key non-tap label text */
-text.combo, text.hold, text.shifted, text.left, text.right {
+text.combo, text.hold, text.shifted, text.left, text.right, text.tl, text.tr, text.bl, text.br {
     font-size: 11px;
 }
 
-text.hold {
+text.hold, text.bl, text.br {
     text-anchor: middle;
     dominant-baseline: auto;
 }
 
-text.shifted {
+text.shifted, text.tl, text.tr {
     text-anchor: middle;
     dominant-baseline: hanging;
 }
 
-text.left {
+text.left, text.tl, text.bl {
     text-anchor: start;
 }
 
-text.right {
+text.right, text.tr, text.br {
     text-anchor: end;
 }
 
@@ -417,7 +431,7 @@ path.combo {
 </g>
 <g class="combo combopos-6">
 <rect rx="6" ry="6" x="490" y="82" width="28" height="26" class="combo"/>
-<text x="504" y="94" class="combo tap">⇒</text>
+<svg x="495" y="86" height="18" width="18.0" viewBox="0 0 48 48" class="combo tap glyph arrow_right"><path d="M8 16h19V7l15 17-15 17v-9H8z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
 </g>
 <g class="combo combopos-7">
 <rect rx="6" ry="6" x="546" y="18" width="28" height="26" class="combo"/>
@@ -950,22 +964,22 @@ path.combo {
 </g>
 <g transform="translate(532, 91)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">⇐</text>
+<svg x="-9" y="-9" height="18" width="18.0" viewBox="0 0 48 48" class="key tap glyph arrow_left"><path d="M40 16H21V7L6 24l15 17v-9h19z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
 <text x="0" y="24" class="key hold">shift</text>
 </g>
 <g transform="translate(588, 84)" class="key keypos-17">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">⇑</text>
+<svg x="-9" y="-9" height="18" width="18.0" viewBox="0 0 48 48" class="key tap glyph arrow_up"><path d="M16 40V21H7L24 6l17 15h-9v19z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
 <text x="0" y="24" class="key hold">ctrl</text>
 </g>
 <g transform="translate(644, 91)" class="key keypos-18">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">⇓</text>
+<svg x="-9" y="-9" height="18" width="18.0" viewBox="0 0 48 48" class="key tap glyph arrow_down"><path d="M16 8v19H7l17 15 17-15h-9V8z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
 <text x="0" y="24" class="key hold">win</text>
 </g>
 <g transform="translate(700, 105)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">⇒</text>
+<svg x="-9" y="-9" height="18" width="18.0" viewBox="0 0 48 48" class="key tap glyph arrow_right"><path d="M8 16h19V7l15 17-15 17v-9H8z" style="fill:none;stroke:#686c70;stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/></svg>
 <text x="0" y="24" class="key hold">alt</text>
 </g>
 <g transform="translate(28, 161)" class="key keypos-20">
