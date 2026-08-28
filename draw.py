@@ -67,6 +67,7 @@ raw_binding_map["&bt BT_CLR"] = {"tap": "BtClr", "hold": "FN"}
 raw_binding_map["&bt BT_SEL 0"] = {"tap": "Bt1", "hold": "FN"}
 raw_binding_map["&bt BT_SEL 1"] = {"tap": "Bt2", "hold": "FN"}
 raw_binding_map["&kp ESC"] = "esc"
+raw_binding_map["&ctrl_v"] = "paste"
 raw_binding_map["&semienter_caps LCAP 0"] = {"tap": ";⏎", "hold": "CAP"}
 raw_binding_map["&hrm_l LC(LWIN) LWIN"] = "win"
 raw_binding_map["&mkp LCLK"] = "left click"
