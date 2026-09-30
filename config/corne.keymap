@@ -93,12 +93,12 @@
             wait-ms = <0>;
             tap-ms = <30>;
             // Keep the normal inter-behavior wait at zero so V and Ctrl release promptly.
-            // Set a 40 ms wait after pressing Ctrl, then use &none to consume that delay
+            // Add a wait after pressing Ctrl, then use &none to consume that delay
             // without sending a key event. Reset the wait before macro_tap so its release
-            // (and the following Ctrl release) are not delayed by another 40 ms.
+            // (and the following Ctrl release) are not delayed by the added wait.
             bindings =
                 <&macro_press &kp LCTRL>,
-                <&macro_wait_time 40>,
+                <&macro_wait_time 80>,
                 <&none>,
                 <&macro_wait_time 0>,
                 <&macro_tap &kp V>,
